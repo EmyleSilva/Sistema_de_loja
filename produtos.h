@@ -20,19 +20,24 @@ long int geraCodigo();
 long int defineCodigoProd(Produtos *ini_p);
 
 /*
-** Iniciali a lista de produtos
-*/
-Produtos *inicializa_p();
-
-/*
 ** Insere um novo produto ao sistema
 */
 Produtos *insereProduto(Produtos *ini_p);
 
 /*
+** Salva os produtos do arquivo no sistema
+*/
+Produtos *recuperaProdutos(Produtos *ini_p, long int codigo, char *descricao, float valor, int quant);
+
+/*
 ** Encontra um produto na lista através do código
 */
 Produtos *encontraProduto(Produtos *ini_p, long int codigo);
+
+/*
+** Validar descricao de produto
+*/
+char* verificaDescricao(Produtos *ini_p, char *descricao, char *nova_descricao);
 
 /*
 ** Lista todos os produtos em estoque

@@ -14,25 +14,25 @@
 #include "clientes.h"
 #include "produtos.h"
 #include "vendas.h"
+#include "arquivos.h"
 
 int main(int argc, char* argv[])
 {
     srand(time(NULL));
-    Produtos *ini_produtos = inicializa_p();
+    FILE* fp_p;
+    Produtos *ini_produtos = NULL;
+    char nomeArq_p[20] = "produtos.txt";
+    int opt_menu = 0, opt_p = 0, opt_c = 0, opt_v = 0;
+    int quant_p = 0, quant_c = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
 
-    /*
-    ** Verifica se existem dados já salvos em arquivos
-    ** Abre os produos/clientes/vendas para visualização no sistema
-    */
+    ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);
 
-
+    /*Produtos *teste = inicializaProdutos(nomeArq_p, &quant_p);
+    printf("Aperte enter......");
+    system("%*c");*/
     //Variaveis para opções de menu
     char menuPrincipal[][50] = {"Produtos", "Clientes", "Vendas", "Encerrar"}; //4 opções
     char menuProdutos[][50] = {"Adicionar Produtos", "Estoque", "Retornar"};//3 opções
-
-    //Variaveis gerais do menu
-    int opt_menu = 0, opt_p = 0, opt_c = 0, opt_v = 0;
-    int quant_p = 0, quant_c = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
 
     //Inicio do menu
     do{
@@ -53,6 +53,7 @@ int main(int argc, char* argv[])
                     case 1: //Adicionar produtos
                         limpaTela();
                         ini_produtos = insereProduto(ini_produtos);
+                        fp_p = salvarProdutos(nomeArq_p, ++quant_p, ini_produtos);
                         mensagem_final(0);
                     break;
 
