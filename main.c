@@ -3,7 +3,7 @@
 ** O sistema tem como funções: armazenar clientes, produtos
 ** e realizar vendas.
 **
-** última atualização: 19/11/2023
+** última atualização: 21/11/2023
 ** Autor: Emyle Silva
 */
 
@@ -22,8 +22,10 @@ int main(int argc, char* argv[])
     FILE* fp_p;
     Produtos *ini_produtos = NULL;
     char nomeArq_p[20] = "produtos.txt";
-    int opt_menu = 0, opt_p = 0, opt_c = 0, opt_v = 0;
+    int opt_menu = 0, opt_p = 0, opt_c = 0, opt_v = 0, opt_e = 0;
     int quant_p = 0, quant_c = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
+    int aux = 0, confirma = 0;
+    long int auxCodigo = 0;
 
     ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);
 
@@ -33,6 +35,7 @@ int main(int argc, char* argv[])
     //Variaveis para opções de menu
     char menuPrincipal[][50] = {"Produtos", "Clientes", "Vendas", "Encerrar"}; //4 opções
     char menuProdutos[][50] = {"Adicionar Produtos", "Estoque", "Retornar"};//3 opções
+    char menuEstoque[][50] = {"Listar Produtos", "Adicionar Itens", "Excluir Itens", "Consultar Preço", "Retornar"}; //5 opções
 
     //Inicio do menu
     do{
@@ -57,11 +60,100 @@ int main(int argc, char* argv[])
                         mensagem_final(0);
                     break;
 
-                    case 2: //Listar produtos em estoque
-                        limpaTela();
-                        listarProdutos(ini_produtos);
-                        mensagem_final(0);
-                    break;
+                    case 2: //MENU DE ESTOQUE
+                        do{
+                            limpaTela();
+                            menu(menuEstoque, 5);
+                            scanf("%d%*c", &opt_e);
+
+                            switch(opt_e){
+                                case 1: //Lista os produtos em estoque
+                                    limpaTela();
+                                    listarProdutos(ini_produtos);
+                                    mensagem_final(0);
+                                break;
+
+                                case 2:{ //Adiciona itens ao estoque
+                                    limpaTela();
+                                    printf("\n\tInforme o código do produto: ");
+                                    printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
+                                    Produtos *auxEstoque = encontraProduto(ini_produtos, auxCodigo);
+
+                                    if(auxEstoque){
+                                        printf("\n\tDescrição do produto: %s", auxEstoque->descricao);
+                                        printf("\n\tQuantidade atual em estoque: %d\n", auxEstoque->quant);
+
+                                        printf("\n\tDigite a quantidade a ser adicionada: ");
+                                        scanf("%d%*c", &aux);
+
+                                        printf("\n\tATENÇÃO: Confirme a operação.\n");
+                                        printf("\tAperte 1 para prosseguir, 2 para cancelar a operação. ");
+                                        scanf("%d%*c", &confirma);
+
+                                        if(confirma == 1) {
+                                            adicionarItens(auxEstoque, aux);
+                                            salvarProdutos(nomeArq_p, quant_p, ini_produtos);
+                                            mensagem_final(0);
+                                        }else{
+                                            mensagem_final(1);
+                                        }
+                                    }else{
+                                        printf("\n\tProduto não cadastrado no sistema.\n");
+                                        printf("\n\tRealize o cadastro do produto e tente novamente");
+                                        free(auxEstoque);
+                                        mensagem_final(2);
+                                    }
+                                break;
+                                }
+                                case 3: {//Excluir itens do estoque
+                                    limpaTela();
+                                    printf("\n\tInforme o código do produto: ");
+                                    printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
+                                    Produtos *auxEstoque = encontraProduto(ini_produtos, auxCodigo);
+
+                                    if(auxEstoque){
+                                        printf("\n\tDescrição do produto: %s", auxEstoque->descricao);
+                                        printf("\n\tQuantidade atual em estoque: %d\n", auxEstoque->quant);
+
+                                        printf("\n\tDigite a quantidade a ser excluida: ");
+                                        scanf("%d%*c", &aux);
+
+                                        printf("\n\tATENÇÃO: Se o número a ser excluido for maior que o valor em estoque, \n\ta quantidade será zerada.");
+                                        printf("\n\tConfirme a operação.\n");
+                                        printf("\tAperte 1 para prosseguir, 2 para cancelar a operação. ");
+                                        scanf("%d%*c", &confirma);
+
+                                        if(confirma == 1) {
+                                            excluirItens(auxEstoque, aux);
+                                            salvarProdutos(nomeArq_p, quant_p, ini_produtos);
+                                            mensagem_final(0);
+                                        }else{
+                                            mensagem_final(1);
+                                        }
+                                    }else{
+                                        printf("\n\tProduto não cadastrado no sistema.\n");
+                                        printf("\n\tRealize o cadastro do produto e tente novamente");
+                                        free(auxEstoque);
+                                        mensagem_final(2);
+                                    }
+                                break;
+                                }
+                                case 4://Consulta de preço (pelo código)
+                                    limpaTela();
+                                    consultaPreco(ini_produtos);
+                                break;
+
+                                case 5: //Retorna ao menu de produtos
+                                    opt_e = 0;
+                                break;
+
+                                default:
+                                    validacao_menu();
+                                break;
+                            }
+
+                        }while(opt_e);
+                    break;//FIM DO MENU DE ESTOQUE
 
                     case 3: //Retornar ao menu principal
                         opt_p = 0;

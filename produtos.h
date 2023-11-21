@@ -37,7 +37,22 @@ Produtos *encontraProduto(Produtos *ini_p, long int codigo);
 /*
 ** Validar descricao de produto
 */
-char* verificaDescricao(Produtos *ini_p, char *descricao, char *nova_descricao);
+char* verificaDescricao(Produtos *ini_p, char *descricao);
+
+/*
+** Adiciona itens ao estoque
+*/
+void adicionarItens(Produtos *produto, int quant);
+
+/*
+** Exclui itens do estoque
+*/
+void excluirItens(Produtos *produto, int quant);
+
+/*
+** Mostra o preço de um produto para o usuario
+*/
+void consultaPreco(Produtos *ini_p);
 
 /*
 ** Lista todos os produtos em estoque

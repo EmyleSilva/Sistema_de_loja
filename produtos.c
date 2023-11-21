@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "produtos.h"
 #include "interface.h"
 
@@ -30,21 +31,21 @@ long int defineCodigoProd(Produtos *ini_p){
 //------------------------------------------------------
 Produtos* insereProduto(Produtos *ini_p){
     Produtos *novo = (Produtos *)malloc(sizeof(Produtos));
-    //char aux[100];
+    char aux[100];
 
     if(novo){
         novo->cod = defineCodigoProd(ini_p);
         //novo->cod = 1;
         printf("\n\tInforme o nome do produto: ");
-        scanf("%99[^\n]%*c", novo->descricao);
+        scanf("%99[^\n]%*c", aux);
 
-        //verificaDescricao(ini_p, aux, &novo->descricao);
+        strcpy(novo->descricao, verificaDescricao(ini_p, aux));
+        //novo->descricao = verificaDescricao(ini_p, aux);
 
         printf("\tInforme o preço do produto: ");
         scanf("%f%*c", &novo->valor);
 
-        printf("\tInforme a quantidade inicial em estoque: ");
-        scanf("%d%*c", &novo->quant);
+        novo->quant = 0;
 
         novo->prox = ini_p;
     }else{
@@ -100,42 +101,70 @@ Produtos *encontraProduto(Produtos *ini_p, long int codigo){
 // em caso de nome repetido, solicita ao usuario um novo
 // valor.
 //--------------------------------------------------------
-/*char* verificaDescricao(Produtos *ini_p, char *descricao, char *nova_descricao){
+char* verificaDescricao(Produtos *ini_p, char *descricao){
     if(ini_p == NULL){
-        int i = 0;
-        for(i = 0; descricao[i]; i++)
-            (*nova_descricao[i]) = descricao[i];
-       (*nova_descricao[i]) = '\0';
-
-        return;
+        return descricao;
     }
-    int verificador = 1;
-    Produtos *aux = ini_p;
+
+    int verificador;
+
     do{
+
+        Produtos *aux = ini_p;
+        verificador = 0;
+
         while(aux){
-            verificador = 1;
-            for(int i = 0; descricao[i]; i++){
-                if(descricao[i] != aux->descricao[i]){
-                    verificador*=0;
-                    break;
-                }
-            }
-            if(!verificador){
-            int i = 0;
-
-            for(i = 0; descricao[i]; i++)
-                (*nova_descricao[i]) = descricao[i];
-            (*nova_descricao[i]) = '\0';
-
-            return;
+            if(strcmp(descricao, aux->descricao) == 0){
+                 printf("\n\tA descrição já está em uso em outro produto. Tente novamente\n");
+                 printf("\tNova Descrição: ");
+                 scanf("%99[^\n]%*c", descricao);
+                 verificador = 1;
+                 break;
             }
 
-            printf("\n\tA descrição já está em uso em outro produto. Tente novamente\n");
-            printf("\tNova Descrição: "); scanf("%99[^\n]%*c", descricao);
             aux = aux->prox;
         }
+
     }while(verificador);
-}*/
+
+    return descricao;
+}
+
+//--------------------------------------------------------
+// Adicionar itens (quantidade) a um produto em estoque
+//--------------------------------------------------------
+void adicionarItens(Produtos *produto, int quant){
+    produto->quant += quant;
+}
+
+//--------------------------------------------------------
+// Excluir itens (quantidade) de um produto em estoque
+//--------------------------------------------------------
+void excluirItens(Produtos *produto, int quant){
+    produto->quant = (quant > produto->quant) ? 0 : (produto->quant)-quant;
+}
+
+//--------------------------------------------------------
+// Mostra o preço de um produto para o usuario
+//--------------------------------------------------------
+void consultaPreco(Produtos *ini_p){
+    long int auxCodigo = 0;
+
+    printf("\n\tDigite o código do produto: ");
+    scanf("%d%*c", &auxCodigo);
+
+    Produtos *auxEstoque = encontraProduto(ini_p, auxCodigo);
+    if(auxEstoque){
+        printf("\n\tDescrição: %s", auxEstoque->descricao);
+        printf("\n\tPREÇO: R$ %.2f\n", auxEstoque->valor);
+        mensagem_final(0);
+    }else{
+        printf("\n\tProduto não cadastrado no sistema.\n");
+        printf("\n\tRealize o cadastro do produto e tente novamente");
+        mensagem_final(2);
+    }
+}
+
 
 //--------------------------------------------------------
 // Lista todos os produtos registrados
