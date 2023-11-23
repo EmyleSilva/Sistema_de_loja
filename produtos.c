@@ -35,12 +35,11 @@ Produtos* insereProduto(Produtos *ini_p){
 
     if(novo){
         novo->cod = defineCodigoProd(ini_p);
-        //novo->cod = 1;
+
         printf("\n\tInforme o nome do produto: ");
         scanf("%99[^\n]%*c", aux);
 
         strcpy(novo->descricao, verificaDescricao(ini_p, aux));
-        //novo->descricao = verificaDescricao(ini_p, aux);
 
         printf("\tInforme o preço do produto: ");
         scanf("%f%*c", &novo->valor);

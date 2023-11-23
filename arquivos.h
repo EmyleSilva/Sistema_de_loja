@@ -32,6 +32,6 @@ Clientes* lerArquivosClientes(char *nomeArq, int quantidade_c);
 ** durante a execução
 */
 void salvarProdutos(char *nomeArq, int quant_p, Produtos *ini_p);
-void salvarClientes(char *nomeArq, int *quant_c, Clientes *ini_c);
+void salvarClientes(char *nomeArq, int quant_c, Clientes *ini_c);
 
 #endif // ARQUIVOS_H_INCLUDED

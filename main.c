@@ -19,15 +19,17 @@
 int main(int argc, char* argv[])
 {
     srand(time(NULL));
-    FILE* fp_p;
     Produtos *ini_produtos = NULL;
+    Clientes *ini_clientes = NULL;
     char nomeArq_p[20] = "produtos.txt";
+    char nomeArq_c[20] = "clientes.txt";
     int opt_menu = 0, opt_p = 0, opt_c = 0, opt_v = 0, opt_e = 0;
     int quant_p = 0, quant_c = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
     int aux = 0, confirma = 0;
     long int auxCodigo = 0;
 
     ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);
+    ini_clientes = inicializaClientes(nomeArq_c, &quant_c);
 
     /*Produtos *teste = inicializaProdutos(nomeArq_p, &quant_p);
     printf("Aperte enter......");
@@ -35,6 +37,7 @@ int main(int argc, char* argv[])
     //Variaveis para opções de menu
     char menuPrincipal[][50] = {"Produtos", "Clientes", "Vendas", "Encerrar"}; //4 opções
     char menuProdutos[][50] = {"Adicionar Produtos", "Estoque", "Retornar"};//3 opções
+    char menuClientes[][50] = {"Adicionar Clientes", "Listar Clientes", "Compras", "Retornar"}; //4 opções
     char menuEstoque[][50] = {"Listar Produtos", "Adicionar Itens", "Excluir Itens", "Consultar Preço", "Retornar"}; //5 opções
 
     //Inicio do menu
@@ -56,7 +59,7 @@ int main(int argc, char* argv[])
                     case 1: //Adicionar produtos
                         limpaTela();
                         ini_produtos = insereProduto(ini_produtos);
-                        fp_p = salvarProdutos(nomeArq_p, ++quant_p, ini_produtos);
+                        salvarProdutos(nomeArq_p, ++quant_p, ini_produtos);
                         mensagem_final(0);
                     break;
 
@@ -168,7 +171,40 @@ int main(int argc, char* argv[])
             break; //break case 1- menu principal
 
             case 2: //CLIENTES
-            break;
+
+                do{
+                    limpaTela();
+                    menu(menuClientes, 4);
+                    scanf("%d%*c", &opt_c);
+
+                    switch(opt_c){
+                        case 1: // Adicionar Cliente
+                            limpaTela();
+                            ini_clientes = adicionaCliente(ini_clientes);
+                            salvarClientes(nomeArq_c, ++quant_c, ini_clientes);
+                            mensagem_final(0);
+                        break;
+
+                        case 2: //Listar clientes
+                            limpaTela();
+                            listarClientes(ini_clientes);
+                            mensagem_final(0);
+                        break;
+
+                        case 3: //Mostrar compras
+                        break;
+
+                        case 4: //Retornar
+                            opt_c = 0;
+                        break;
+
+                        default:
+                            validacao_menu();
+                        break;
+                    }
+                }while(opt_c);
+
+            break;// break case 2 - menu principal
 
             case 3: //VENDAS
             break;
