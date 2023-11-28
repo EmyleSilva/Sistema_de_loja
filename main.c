@@ -3,7 +3,7 @@
 ** O sistema tem como funções: armazenar clientes, produtos
 ** e realizar vendas.
 **
-** última atualização: 21/11/2023
+** última atualização: 27/11/2023
 ** Autor: Emyle Silva
 */
 
@@ -21,8 +21,12 @@ int main(int argc, char* argv[])
     srand(time(NULL));
     Produtos *ini_produtos = NULL;
     Clientes *ini_clientes = NULL;
+    Vendas   *ini_vendas   = NULL;
+
     char nomeArq_p[20] = "produtos.txt";
     char nomeArq_c[20] = "clientes.txt";
+    //char nomeArq_v[20] = "vendas.txt";
+
     int opt_menu = 0, opt_p = 0, opt_c = 0, opt_v = 0, opt_e = 0;
     int quant_p = 0, quant_c = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
     int aux = 0, confirma = 0;
@@ -31,14 +35,12 @@ int main(int argc, char* argv[])
     ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);
     ini_clientes = inicializaClientes(nomeArq_c, &quant_c);
 
-    /*Produtos *teste = inicializaProdutos(nomeArq_p, &quant_p);
-    printf("Aperte enter......");
-    system("%*c");*/
     //Variaveis para opções de menu
     char menuPrincipal[][50] = {"Produtos", "Clientes", "Vendas", "Encerrar"}; //4 opções
     char menuProdutos[][50] = {"Adicionar Produtos", "Estoque", "Retornar"};//3 opções
     char menuClientes[][50] = {"Adicionar Clientes", "Listar Clientes", "Compras", "Retornar"}; //4 opções
     char menuEstoque[][50] = {"Listar Produtos", "Adicionar Itens", "Excluir Itens", "Consultar Preço", "Retornar"}; //5 opções
+    char menuVendas[][50] = {"Realizar Venda", "Listar Vendas" ,"Retornar"}; //3 opções
 
     //Inicio do menu
     do{
@@ -207,6 +209,40 @@ int main(int argc, char* argv[])
             break;// break case 2 - menu principal
 
             case 3: //VENDAS
+
+                do{
+                    limpaTela();
+                    menu(menuVendas, 3);
+                    scanf("%d%*c", &opt_v);
+
+                    switch(opt_v){
+                        case 1:{
+                            limpaTela();
+                            float totalVenda = 0.0;
+                            int quant_prod = 0;
+                            Itens *nvenda = realizaVenda(ini_produtos, &totalVenda, &quant_prod);
+                            ini_vendas = cadastraVenda(ini_vendas, nvenda, quant_prod ,totalVenda);
+                            mensagem_final(0);
+                            break;
+                        }
+
+                        case 2:
+                            limpaTela();
+                            listarVendas(ini_vendas);
+                            mensagem_final(0);
+                        break;
+
+                        case 3:
+                            opt_v = 0;
+                        break;
+
+                        default:
+                            validacao_menu();
+                        break;
+                    }
+
+                }while(opt_v);
+
             break;
 
             case 4: //ENCERRAR
