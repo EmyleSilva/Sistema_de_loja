@@ -70,7 +70,7 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
 
 
 //-------------------------------------------------------------
-// Cadastra a venda realiza na lista encadeada de vendas
+// Cadastra a venda realizada na lista encadeada de vendas
 //-------------------------------------------------------------
 
 Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda){
