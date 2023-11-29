@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include "arquivos.h"
 #include "produtos.h"
-#include "clientes.h"
 #include "vendas.h"
 #include "interface.h"
-FILE *fp_p, *fp_c;
+FILE *fp_p;
 
 
 //********************************************
@@ -90,73 +89,5 @@ void salvarProdutos(char *nomeArq, int quant_p, Produtos *ini_p){
 }
 
 //********************************************
-//   Funções para manipulações de clientes
+//   Funções para manipulações de vendas
 //********************************************
-void salvarClientes(char *nomeArq, int quant_c, Clientes *ini_c){
-    FILE *fp_c;
-    Clientes *aux = ini_c;
-
-    if((fp_c = fopen(nomeArq, "w")) == NULL){
-        mostra_erro_e_encerra("\n\tErro Interno: Não foi possivel abrir o arquivo.");
-    }
-
-    fprintf(fp_c, "%d\n\n", quant_c);
-    for(; aux != NULL ; aux = aux->prox){
-        fprintf(fp_c, "%li\n", aux->codigo);
-        fprintf(fp_c, "%s\n", aux->nome);
-    }
-
-    fclose(fp_c);
-}
-
-//----------------------------------------------------
-// Inicializa os clientes
-//----------------------------------------------------
-Clientes* inicializaClientes(char *nomeArq, int *quant){
-    Clientes *aux;
-    Clientes *ini_c = NULL;
-    int quantidade_c;
-
-    fp_c = fopen(nomeArq, "r");
-    if(fp_c != NULL) {
-        fscanf(fp_p, "%d\n\n", &quantidade_c);
-        fclose(fp_c);
-        (*quant) = quantidade_c;
-        aux = lerArquivosClientes(nomeArq, quantidade_c);
-        ini_c = iniciaListaClientes(ini_c, aux, quantidade_c);
-        fclose(fp_c);
-        return ini_c;
-    }
-    return NULL;
-}
-
-//--------------------------------------------
-// Lê as informações do arquivo de clientes
-//--------------------------------------------
-Clientes* lerArquivosClientes(char *nomeArq, int quantidade_c){
-    Clientes *aux = (Clientes *)malloc((quantidade_c) * sizeof(Clientes));
-    long int lixo;
-    char buffer[100];
-
-    if((fp_c = fopen(nomeArq, "r")) == NULL){
-        mostra_erro_e_encerra("\n\tErro ao abrir arquivo.");
-    }
-    fscanf(fp_c, "%d\n\n", &lixo);
-    for(int i = 0; i < quantidade_c; i++){
-        fscanf(fp_p, "%li\n", &(aux[i].codigo));
-        fgets(buffer, sizeof(buffer), fp_c);
-        sscanf(buffer, "%199[^\n]", aux[i].nome);
-    }
-
-    return aux;
-}
-
-//------------------------------------------------------------
-// Chama uma função de clientes que inicia a lista encadeada
-// com os valores recuperados dos arquivos
-//------------------------------------------------------------
-Clientes *iniciaListaClientes(Clientes *ini_c, Clientes *aux, int quant){
-    for(int i = quant-1; i >= 0; i--)
-        ini_c = recuperaClientes(ini_c, aux[i].codigo, aux[i].nome);
-    return ini_c;
-}

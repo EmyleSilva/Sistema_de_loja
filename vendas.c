@@ -3,7 +3,6 @@
 #include <time.h>
 #include "vendas.h"
 #include "produtos.h"
-#include "clientes.h"
 #include "interface.h"
 
 //-------------------------------------------------------------
