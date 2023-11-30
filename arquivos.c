@@ -24,7 +24,6 @@ Produtos* inicializaProdutos(char *nomeArq, int *quant){
         fscanf(fp_p, "%d\n\n", &quantidade_p);
         fclose(fp_p);
         (*quant) = quantidade_p;
-        //printf("quantidade p: %d\n", quantidade_p);
         aux = lerArquivosProdutos(nomeArq, quantidade_p);
         ini_p = iniciaListaProd(ini_p, aux, quantidade_p);
         fclose(fp_p);
@@ -91,3 +90,72 @@ void salvarProdutos(char *nomeArq, int quant_p, Produtos *ini_p){
 //********************************************
 //   Funções para manipulações de vendas
 //********************************************
+void salvarVendas(char *nomeArq, int quant_v, Vendas *ini_v){
+    FILE *fp_v;
+    Vendas *aux = ini_v;
+
+    if((fp_v = fopen(nomeArq, "wb"))==NULL){
+        mostra_erro_e_encerra("Erro Interno: o arquivo não pode ser aberto.");
+    }
+    fwrite(&quant_v, sizeof(int), 1, fp_v);
+    while(aux){
+        fwrite(&aux->codigo, sizeof(long int), 1, fp_v);
+        fwrite(&aux->tamItem, sizeof(int), 1, fp_v);
+
+        for(int i = 0; i < aux->tamItem; i++){
+            fwrite(&aux->item[i], sizeof(Itens), 1, fp_v);
+        }
+
+        fwrite(&aux->dia, sizeof(int), 1, fp_v);
+        fwrite(&aux->mes, sizeof(int), 1, fp_v);
+        fwrite(&aux->ano, sizeof(int), 1, fp_v);
+        fwrite(&aux->hora, sizeof(int), 1, fp_v);
+        fwrite(&aux->minutos, sizeof(int), 1, fp_v);
+        fwrite(&aux->segundos, sizeof(int), 1, fp_v);
+        fwrite(&aux->total, sizeof(float), 1, fp_v);
+        aux = aux->prox;
+    }
+    fclose(fp_v);
+}
+
+Vendas* inicializaVendas(Vendas **ini_v, int *quant_v, char *nomeArq){
+    FILE *fp_v = fopen(nomeArq, "rb");
+
+    if(fp_v != NULL){
+
+        fread(quant_v, sizeof(int), 1, fp_v);
+        int quantidade = (*quant_v);
+
+        while(quantidade){
+            Vendas *novo = (Vendas *)malloc(sizeof(Vendas));
+            if(novo){
+                fread(&novo->codigo, sizeof(long int), 1, fp_v);
+                fread(&novo->tamItem, sizeof(int), 1, fp_v);
+                novo->item = (Itens *)malloc(novo->tamItem * sizeof(Itens));
+                for(int i = 0; i < novo->tamItem; i++){
+                    fread(&novo->item[i], sizeof(Itens), 1, fp_v);
+                }
+                fread(&novo->dia, sizeof(int), 1, fp_v);
+                fread(&novo->mes, sizeof(int), 1, fp_v);
+                fread(&novo->ano, sizeof(int), 1, fp_v);
+                fread(&novo->hora, sizeof(int), 1, fp_v);
+                fread(&novo->minutos, sizeof(int), 1, fp_v);
+                fread(&novo->segundos, sizeof(int), 1, fp_v);
+                fread(&novo->total, sizeof(float), 1, fp_v);
+
+                novo->prox = *ini_v;
+                *ini_v = novo;
+                quantidade--;
+            }else{
+                mostra_erro_e_encerra("Erro Interno: Memória Insuficiente");
+            }
+        }
+        fclose(fp_v);
+        return *ini_v;
+    }
+    return NULL;
+}
+
+
+
+

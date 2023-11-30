@@ -5,22 +5,15 @@
 #include "interface.h"
 
 //------------------------------------------------------
-// A função retorna um código (long int) para o produto
+// Verifica se o código já foi usado, e, pede um novo
+// caso já esteja em uso
 //------------------------------------------------------
-long int geraCodigo(){
-    return 1000+(rand()%1000);
-}
-
-//------------------------------------------------------
-// Verifica se o código gerado para um produto já está
-// em uso, retorna o mesmo codigo ou um novo
-//------------------------------------------------------
-long int defineCodigoProd(Produtos *ini_p){
-    long int codigo = geraCodigo();
+long int validaCodigoProd(Produtos *ini_p, long int codigo){
     Produtos *aux = encontraProduto(ini_p, codigo);
 
     while(aux != NULL){
-        codigo = geraCodigo();
+        printf("\n\tO código digitado já está em uso. Tente novamente\n\t");
+        printf("Novo código: "); scanf("%li%*c", &codigo);
         aux = encontraProduto(ini_p, codigo);
     }
     return codigo;
@@ -34,7 +27,9 @@ Produtos* insereProduto(Produtos *ini_p){
     char aux[100];
 
     if(novo){
-        novo->cod = defineCodigoProd(ini_p);
+        printf("\n\tInforme o código do produto: ");
+        scanf("%li%*c", &novo->cod);
+        novo->cod = validaCodigoProd(ini_p, novo->cod);
 
         printf("\n\tInforme o nome do produto: ");
         scanf("%99[^\n]%*c", aux);

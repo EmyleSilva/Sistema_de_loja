@@ -10,14 +10,15 @@ typedef struct itens{
 }Itens;
 
 typedef struct vendas{
+    int tamItem;
     int codigo;
     struct itens *item;
-    int tamItem;
     int dia;
     int mes;
     int ano;
     int hora;
-    int seg;
+    int minutos;
+    int segundos;
     float total;
     struct vendas *prox;
 }Vendas;
@@ -45,5 +46,15 @@ Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVend
 ** Mostra todas as vendas na tela.
 */
 void listarVendas(Vendas *ini_v);
+
+/*
+** Atribui data e hora de uma venda
+*/
+void dataHora(int *dia, int *mes, int *ano, int *hora, int *minutos,int *segundos);
+
+/*
+** Mostra a nota com todos os itens comprados durante a venda
+*/
+void mostrarNotaFiscal(Itens *produtos, int tam, float totalVenda);
 
 #endif // VENDAS_H_INCLUDED

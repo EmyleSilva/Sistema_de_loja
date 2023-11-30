@@ -10,14 +10,9 @@ typedef struct produtos{
 }Produtos;
 
 /*
-** Função gera um código para o produto
-*/
-long int geraCodigo();
-
-/*
 ** Devolve um código único para um novo produto
 */
-long int defineCodigoProd(Produtos *ini_p);
+long int validaCodigoProd(Produtos *ini_p, long int codigo);
 
 /*
 ** Insere um novo produto ao sistema

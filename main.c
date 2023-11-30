@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     Vendas   *ini_vendas   = NULL;
 
     char nomeArq_p[20] = "produtos.txt";
-    //char nomeArq_v[20] = "vendas.txt";
+    char nomeArq_v[20] = "vendas.txt";
 
     int opt_menu = 0, opt_p = 0, opt_v = 0, opt_e = 0;
     int quant_p = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
@@ -30,6 +30,7 @@ int main(int argc, char* argv[])
     long int auxCodigo = 0;
 
     ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);
+    ini_vendas = inicializaVendas(&ini_vendas, &quant_v, nomeArq_v);
 
     //Variaveis para opções de menu
     char menuPrincipal[][50] = {"Produtos", "Vendas", "Encerrar"}; //3 opções
@@ -181,6 +182,7 @@ int main(int argc, char* argv[])
                             int quant_prod = 0;
                             Itens *nvenda = realizaVenda(ini_produtos, &totalVenda, &quant_prod);
                             ini_vendas = cadastraVenda(ini_vendas, nvenda, quant_prod ,totalVenda);
+                            salvarVendas(nomeArq_v, ++quant_v, ini_vendas);
                             mensagem_final(0);
                             break;
                         }
@@ -204,7 +206,7 @@ int main(int argc, char* argv[])
 
             break;
 
-            case 4: //ENCERRAR
+            case 3: //ENCERRAR
                 opt_menu = 0;
                 finaliza_programa();
             break;

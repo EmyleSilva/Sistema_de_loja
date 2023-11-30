@@ -2,6 +2,7 @@
 #define ARQUIVOS_H_INCLUDED
 
 #include "produtos.h"
+#include "vendas.h"
 
 /*
 ** Funções que inicializam os produtos e vendas;
@@ -9,6 +10,7 @@
 ** com valores recuperados dos respectivos arquivos.
 */
 Produtos* inicializaProdutos(char *nomeArq, int *quant);
+Vendas* inicializaVendas(Vendas **ini_v, int *quant_v, char *nomeArq);
 /*
 ** Função que passa os valores dos arquivos para as
 ** listas encadeadas do sistema
@@ -27,5 +29,6 @@ Produtos* lerArquivosProdutos(char *nomeArq, int quantidade_p);
 ** durante a execução
 */
 void salvarProdutos(char *nomeArq, int quant_p, Produtos *ini_p);
+void salvarVendas(char *nomeArq, int quant_v, Vendas *ini_v);
 
 #endif // ARQUIVOS_H_INCLUDED

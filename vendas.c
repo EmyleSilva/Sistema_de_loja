@@ -11,7 +11,7 @@
 //-------------------------------------------------------------
 
 Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
-    printf("\n\tATENÇÃO: Para finalizar a venda, pressione 0");
+    printf("\n\tATENÇÃO: Para finalizar a venda, pressione 0\n");
     int quant_itens = 0;
     int verificaQuant = 0;
     long int codigo = 0;
@@ -33,13 +33,11 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
                 aux = encontraProduto(ini_p, codigo);
             }
 
-            printf("\n\tQuantidade: ");
+            printf("\tQuantidade: ");
             scanf("%d%*c", &quant_itens);
 
-            while(!(verificaQuant = verificaEstoque(aux, quant_itens))){
-                printf("\n\tQuantidade em falta no estoque.");
-                printf("\n\tTOTAL em estoque: %d. Tente novamente", aux->quant);
-                printf("\n\tQuantidade: "); scanf("%d%*c", &quant_itens);
+            if(!(verificaQuant = verificaEstoque(aux, quant_itens))){
+                //FAZER TRATAMENTE CASO ISSO ACONTEÇA...... MAS COMO?
             }
 
             //excluirItens(aux, quantidade_prod); //TODO: Da certo, mas tem que atualizar os produtos apoś finalizar
@@ -56,32 +54,40 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
 
             (*totalVenda)+=valorTotal;
             (*quantidade_prod)++;
+            printf("\n\t%li - %s \t%.2f - %d - %.2f\n", aux->cod, aux->descricao, aux->valor, quant_itens, valorTotal);
 
             produtos = (Itens *)realloc(produtos, ((*quantidade_prod) + 1)*sizeof(Itens));
 
         }else{
-            printf("\n\tVENDA ENCERRADA!!\n"); //TODO: LISTAR A VENDA E MOSTRAR VALOR TOTAL
+            mostrarNotaFiscal(produtos, (*quantidade_prod), (*totalVenda));
         }
     }while(codigo);
-
+    //TODO: Se abrir uma venda e encerrar sem comprar, a venda não deve ser salva
     return produtos;
 }
 
+void mostrarNotaFiscal(Itens *produtos, int tam, float totalVenda){
+    limpaTela();
+    printf("\n\t============================ Venda Finalizada ============================\n");
+    printf("\n\tNota Fiscal\n");
+    printf("\t----------------------------------------------------------------------\n");
+    printf("\tItem - codigo - descrição - Preço uni. - Quant. - Preço Tot.");
+    for(int i = 0; i < tam; i++){
+        printf("\n\t%d - %li - %s - R$%.2f - %d - R$%.2f",
+        i+1, produtos[i].prodItem.cod, produtos[i].prodItem.descricao, produtos[i].prodItem.valor, produtos[i].quantidadeItem, produtos[i].valorTotalItem);
+    }
+    printf("\n\tValor total da venda: R$%.2f\n", totalVenda);
+}
 
 //-------------------------------------------------------------
 // Cadastra a venda realizada na lista encadeada de vendas
 //-------------------------------------------------------------
 
-Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda){
+Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda/*, int *quant_v*/){
     Vendas *novo = (Vendas *)malloc(sizeof(Vendas));
-    //TODO: Deixar Data e hora automaticos
     if(novo){
-        novo->codigo = 1;
-        novo->dia = 27;
-        novo->mes = 11;
-        novo->ano = 2023;
-        novo->hora = 22;
-        novo->seg = 3;
+        novo->codigo = /*(*quant_v) + */1;
+        dataHora(&novo->dia, &novo->mes, &novo->ano, &novo->hora, &novo->minutos, &novo->segundos);
         novo->item = prods;
         novo->tamItem = tamProds;
         novo->total = totalVenda;
@@ -90,7 +96,7 @@ Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVend
     }else{
         mostra_erro_e_encerra("\n\tERRO INTERNO: Memória insuficiente\n");
     }
-
+    /*(*quant_v)++;//talvez não precise disso, deixar incrementar quando poe o código?*/
     return novo;
 }
 
@@ -122,7 +128,7 @@ void listarVendas(Vendas *ini_v){
             printf("\n\t-------------------- Venda %d --------------------\n", cont);
             printf("\tCódigo: %li\n", aux->codigo);
             printf("\tData: %d/%d/%d\n", aux->dia, aux->mes, aux->ano);
-            printf("\tHora: %dh %ds\n", aux->hora, aux->seg);
+            printf("\tHora: %d:%d:%d\n", aux->hora, aux->minutos,aux->segundos);
             for(int i = 0; i < aux->tamItem ; i++){
                 printf("\n\tItem %d: %li - %s\n", i+1,aux->item[i].prodItem.cod, aux->item[i].prodItem.descricao);
                 printf("\t\tValor uni.: R$%.2f \tQuant.: %d \t", aux->item[i].prodItem.valor, aux->item[i].quantidadeItem);
@@ -131,6 +137,24 @@ void listarVendas(Vendas *ini_v){
             printf("\n\tValor total da compra: R$ %.2f\n", aux->total);
         }
     }
-    printf("\n\t%d Clientes encontrados.\n", cont);
+    printf("\n\t%d Vendas encontrados.\n", cont);
+}
+
+//-------------------------------------------------------------
+// Recupera a data e hora atual
+//-------------------------------------------------------------
+void dataHora(int *dia, int *mes, int *ano, int *hora, int *minutos, int *segundos){
+    struct tm *t;
+    time_t s;
+
+    time(&s);
+    t = localtime(&s);
+
+    (*dia) = t->tm_mday;
+    (*mes) = t->tm_mon + 1;
+    (*ano) = t->tm_year + 1900;
+    (*hora) = t->tm_hour;
+    (*minutos) = t->tm_min;
+    (*segundos) = t->tm_sec;
 }
 
