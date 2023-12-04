@@ -125,7 +125,7 @@ int main(int argc, char* argv[])
                                         scanf("%d%*c", &confirma);
 
                                         if(confirma == 1) {
-                                            excluirItens(auxEstoque, aux);
+                                            excluirItens(auxEstoque, aux, 0);
                                             salvarProdutos(nomeArq_p, quant_p, ini_produtos);
                                             mensagem_final(0);
                                         }else{
@@ -181,9 +181,15 @@ int main(int argc, char* argv[])
                             float totalVenda = 0.0;
                             int quant_prod = 0;
                             Itens *nvenda = realizaVenda(ini_produtos, &totalVenda, &quant_prod);
-                            ini_vendas = cadastraVenda(ini_vendas, nvenda, quant_prod ,totalVenda);
-                            salvarVendas(nomeArq_v, ++quant_v, ini_vendas);
-                            mensagem_final(0);
+
+                            if(totalVenda){
+                                ini_vendas = cadastraVenda(ini_vendas, nvenda, quant_prod ,totalVenda, &quant_v);
+                                salvarVendas(nomeArq_v, ++quant_v, ini_vendas);
+                                salvarProdutos(nomeArq_p, quant_p, ini_produtos);
+                                mensagem_final(0);
+                            }else{
+                                mensagem_final(1);
+                            }
                             break;
                         }
 

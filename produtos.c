@@ -134,8 +134,16 @@ void adicionarItens(Produtos *produto, int quant){
 //--------------------------------------------------------
 // Excluir itens (quantidade) de um produto em estoque
 //--------------------------------------------------------
-void excluirItens(Produtos *produto, int quant){
-    produto->quant = (quant > produto->quant) ? 0 : (produto->quant)-quant;
+void excluirItens(Produtos *produto, int quant, int tipo_operacao){
+    switch(tipo_operacao){
+        case 0:
+            produto->quant = (quant > produto->quant) ? 0 : (produto->quant)-quant;
+        break;
+
+        case 1:
+            produto->quant = (quant > produto->quant) ? -1 : (produto->quant)-quant;
+        break;
+    }
 }
 
 //--------------------------------------------------------

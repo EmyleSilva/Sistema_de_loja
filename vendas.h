@@ -31,16 +31,10 @@ typedef struct vendas{
 Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod);
 
 /*
-** Verifica se a quantidade de saida de um produto
-** é possivel (se existe a quantidade necessária em estoque)
-*/
-int verificaEstoque(Produtos *prod, int quantidade_prod);
-
-/*
 ** A cadastra a venda (todos os itens vendidos)
 ** além de registrar o código da venda, data/hora e valor total
 */
-Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda);
+Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda, int *quant_v);
 
 /*
 ** Mostra todas as vendas na tela.

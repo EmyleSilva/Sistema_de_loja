@@ -13,7 +13,6 @@
 Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
     printf("\n\tATENÇÃO: Para finalizar a venda, pressione 0\n");
     int quant_itens = 0;
-    int verificaQuant = 0;
     long int codigo = 0;
     float valorTotal = 0.0;
 
@@ -36,11 +35,7 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
             printf("\tQuantidade: ");
             scanf("%d%*c", &quant_itens);
 
-            if(!(verificaQuant = verificaEstoque(aux, quant_itens))){
-                //FAZER TRATAMENTE CASO ISSO ACONTEÇA...... MAS COMO?
-            }
-
-            //excluirItens(aux, quantidade_prod); //TODO: Da certo, mas tem que atualizar os produtos apoś finalizar
+            excluirItens(aux, quant_itens, 1);
             valorTotal = aux->valor * quant_itens;
 
             produtos[(*quantidade_prod)].prodItem.cod = codigo;
@@ -59,11 +54,17 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
             produtos = (Itens *)realloc(produtos, ((*quantidade_prod) + 1)*sizeof(Itens));
 
         }else{
-            mostrarNotaFiscal(produtos, (*quantidade_prod), (*totalVenda));
+            if((*totalVenda))
+                mostrarNotaFiscal(produtos, (*quantidade_prod), (*totalVenda));
         }
     }while(codigo);
-    //TODO: Se abrir uma venda e encerrar sem comprar, a venda não deve ser salva
-    return produtos;
+
+    if(produtos[0].prodItem.cod){
+        return produtos;
+    }else{
+        return NULL;
+    }
+
 }
 
 void mostrarNotaFiscal(Itens *produtos, int tam, float totalVenda){
@@ -83,10 +84,10 @@ void mostrarNotaFiscal(Itens *produtos, int tam, float totalVenda){
 // Cadastra a venda realizada na lista encadeada de vendas
 //-------------------------------------------------------------
 
-Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda/*, int *quant_v*/){
+Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVenda, int *quant_v){
     Vendas *novo = (Vendas *)malloc(sizeof(Vendas));
     if(novo){
-        novo->codigo = /*(*quant_v) + */1;
+        novo->codigo = (*quant_v) + 1;
         dataHora(&novo->dia, &novo->mes, &novo->ano, &novo->hora, &novo->minutos, &novo->segundos);
         novo->item = prods;
         novo->tamItem = tamProds;
@@ -96,23 +97,8 @@ Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVend
     }else{
         mostra_erro_e_encerra("\n\tERRO INTERNO: Memória insuficiente\n");
     }
-    /*(*quant_v)++;//talvez não precise disso, deixar incrementar quando poe o código?*/
     return novo;
 }
-
-
-//-------------------------------------------------------------
-// Verifica se a quantidade a ser vendida está disponivel em
-// estoque, retorna 0 caso não haja quantidade suficiente
-//-------------------------------------------------------------
-
-int verificaEstoque(Produtos *prod, int quantidade_prod){
-    if(quantidade_prod > prod->quant){
-        return 0;
-    }
-    return 1;
-}
-
 
 //-------------------------------------------------------------
 // Mostra na tela todas as vendas realizadas

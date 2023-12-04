@@ -42,7 +42,7 @@ void adicionarItens(Produtos *produto, int quant);
 /*
 ** Exclui itens do estoque
 */
-void excluirItens(Produtos *produto, int quant);
+void excluirItens(Produtos *produto, int quant, int tipo_operacao);
 
 /*
 ** Mostra o preço de um produto para o usuario

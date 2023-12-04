@@ -1,34 +1,22 @@
-8
+5
 
-1212
-Perfume oboticario floratta red
-110.99
-15
-1225
-testando
-32.99
 0
-2022105
-Hidratante labial cherry
-15.50
+deleta
+12.00
 0
-1559
-Testar novamente
-20.00
-0
-1584
-produto1
+12313
+Perfume 24h care
+89.99
+1
+12312
+Oleo corporal Hidrate care
+20.59
+-1
+12311
+Hidratante de pele hidrate care
 25.99
-25
-1265
-teste20
-20.00
-50
-1664
-teste1
-10.00
-30
-0
-teste1
-0.00
-0
+-1
+12310
+Hidratante labial hidrat care
+15.99
+-1
