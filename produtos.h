@@ -34,6 +34,8 @@ Produtos *encontraProduto(Produtos *ini_p, long int codigo);
 */
 char* verificaDescricao(Produtos *ini_p, char *descricao);
 
+Produtos* atualizaEstoqueAdd(Produtos *ini_p, int *confirma, int *quant_ad);
+Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del);
 /*
 ** Adiciona itens ao estoque
 */

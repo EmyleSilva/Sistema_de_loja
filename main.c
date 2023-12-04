@@ -76,21 +76,8 @@ int main(int argc, char* argv[])
 
                                 case 2:{ //Adiciona itens ao estoque
                                     limpaTela();
-                                    printf("\n\tInforme o código do produto: ");
-                                    printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
-                                    Produtos *auxEstoque = encontraProduto(ini_produtos, auxCodigo);
-
+                                    Produtos *auxEstoque = atualizaEstoqueAdd(ini_produtos, &confirma, &aux);
                                     if(auxEstoque){
-                                        printf("\n\tDescrição do produto: %s", auxEstoque->descricao);
-                                        printf("\n\tQuantidade atual em estoque: %d\n", auxEstoque->quant);
-
-                                        printf("\n\tDigite a quantidade a ser adicionada: ");
-                                        scanf("%d%*c", &aux);
-
-                                        printf("\n\tATENÇÃO: Confirme a operação.\n");
-                                        printf("\tAperte 1 para prosseguir, 2 para cancelar a operação. ");
-                                        scanf("%d%*c", &confirma);
-
                                         if(confirma == 1) {
                                             adicionarItens(auxEstoque, aux);
                                             salvarProdutos(nomeArq_p, quant_p, ini_produtos);
@@ -108,22 +95,8 @@ int main(int argc, char* argv[])
                                 }
                                 case 3: {//Excluir itens do estoque
                                     limpaTela();
-                                    printf("\n\tInforme o código do produto: ");
-                                    printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
-                                    Produtos *auxEstoque = encontraProduto(ini_produtos, auxCodigo);
-
+                                    Produtos *auxEstoque = atualizaEstoqueDel(ini_produtos, &confirma, &aux);
                                     if(auxEstoque){
-                                        printf("\n\tDescrição do produto: %s", auxEstoque->descricao);
-                                        printf("\n\tQuantidade atual em estoque: %d\n", auxEstoque->quant);
-
-                                        printf("\n\tDigite a quantidade a ser excluida: ");
-                                        scanf("%d%*c", &aux);
-
-                                        printf("\n\tATENÇÃO: Se o número a ser excluido for maior que o valor em estoque, \n\ta quantidade será zerada.");
-                                        printf("\n\tConfirme a operação.\n");
-                                        printf("\tAperte 1 para prosseguir, 2 para cancelar a operação. ");
-                                        scanf("%d%*c", &confirma);
-
                                         if(confirma == 1) {
                                             excluirItens(auxEstoque, aux, 0);
                                             salvarProdutos(nomeArq_p, quant_p, ini_produtos);

@@ -125,12 +125,68 @@ char* verificaDescricao(Produtos *ini_p, char *descricao){
 }
 
 //--------------------------------------------------------
+// Procedimento para adicionar os itens de um produto ao
+// estoque
+//--------------------------------------------------------
+Produtos* atualizaEstoqueAdd(Produtos *ini_produtos, int *confirma, int *quant_ad){
+    int auxCodigo = 0;
+
+    printf("\n\tInforme o código do produto: ");
+    printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
+    Produtos *auxEstoque = encontraProduto(ini_produtos, auxCodigo);
+
+    if(auxEstoque){
+        printf("\n\tDescrição do produto: %s", auxEstoque->descricao);
+        printf("\n\tQuantidade atual em estoque: %d\n", auxEstoque->quant);
+
+        printf("\n\tDigite a quantidade a ser adicionada: ");
+        scanf("%d%*c", quant_ad);
+
+        printf("\n\tATENÇÃO: Confirme a operação.\n");
+        printf("\tAperte 1 para prosseguir, 2 para cancelar a operação. ");
+        scanf("%d%*c", confirma);
+
+        return auxEstoque;
+    }else{
+        return NULL;
+    }
+}
+
+//--------------------------------------------------------
 // Adicionar itens (quantidade) a um produto em estoque
 //--------------------------------------------------------
 void adicionarItens(Produtos *produto, int quant){
     produto->quant += quant;
 }
 
+//--------------------------------------------------------
+// Procedimento para excluir os itens de um produto ao
+// estoque
+//--------------------------------------------------------
+Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del){
+    int auxCodigo = 0;
+
+    printf("\n\tInforme o código do produto: ");
+    printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
+    Produtos *auxEstoque = encontraProduto(ini_p, auxCodigo);
+
+    if(auxEstoque){
+        printf("\n\tDescrição do produto: %s", auxEstoque->descricao);
+        printf("\n\tQuantidade atual em estoque: %d\n", auxEstoque->quant);
+
+        printf("\n\tDigite a quantidade a ser excluida: ");
+        scanf("%d%*c", quant_del);
+
+        printf("\n\tATENÇÃO: Se o número a ser excluido for maior que o valor em estoque, \n\ta quantidade será zerada.");
+        printf("\n\tConfirme a operação.\n");
+        printf("\tAperte 1 para prosseguir, 2 para cancelar a operação. ");
+        scanf("%d%*c", confirma);
+
+        return auxEstoque;
+    }else{
+        return NULL;
+    }
+}
 //--------------------------------------------------------
 // Excluir itens (quantidade) de um produto em estoque
 //--------------------------------------------------------
@@ -166,6 +222,7 @@ void consultaPreco(Produtos *ini_p){
         mensagem_final(2);
     }
 }
+
 
 
 //--------------------------------------------------------
