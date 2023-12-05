@@ -3,7 +3,7 @@
 ** O sistema tem como funções: armazenar clientes, produtos
 ** e realizar vendas.
 **
-** última atualização: 29/11/2023
+** última atualização: 05/12/2023
 ** Autor: Emyle Silva
 */
 
@@ -132,7 +132,14 @@ int main(int argc, char* argv[])
 
                     case 3: //Relatório de estoque
                         limpaTela();
-                        /*quant_avisos = avisosEstoque(ini_produtos, quant_avisos);*/
+                        quant_avisos = buscarEstoqueIrregular(ini_produtos);
+
+                        if(quant_avisos){
+                            mostraAvisosEstoque(quant_avisos);
+                        }else{
+                            printf("\n\n\t\tEstoque sem irregularidades!\n\n");
+                        }
+                        mensagem_final(0);
                     break;
 
                     case 4: //Retornar ao menu principal

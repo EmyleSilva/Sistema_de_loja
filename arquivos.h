@@ -24,6 +24,7 @@ Produtos *iniciaListaProd(Produtos *ini_prod, Produtos *aux, int quant);
 */
 Produtos* lerArquivosProdutos(char *nomeArq, int quantidade_p);
 Vendas* lerArquivoRelatorio(char *nomeArq, int *tamV, float *total_periodo);
+Produtos *lerArquivoAvisos(int *tam_p);
 
 /*
 ** Procedimentos que salvam os valores do sistema em arquivos
@@ -32,6 +33,6 @@ Vendas* lerArquivoRelatorio(char *nomeArq, int *tamV, float *total_periodo);
 void salvarProdutos(char *nomeArq, int quant_p, Produtos *ini_p);
 void salvarVendas(char *nomeArq, int quant_v, Vendas *ini_v);
 void salvarRelatorio(char *nomeArq, Vendas *r, int tamV, float total_periodo, int mes);
-
+void salvarAvisosEstoque(Produtos *avisos, int tam_p);
 
 #endif // ARQUIVOS_H_INCLUDED

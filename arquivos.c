@@ -212,3 +212,39 @@ Vendas* lerArquivoRelatorio(char *nomeArq, int *tamV, float *total_periodo){
     return r;
 }
 
+//--------------------------------------------
+// Salva os avisos de irrgularidade de estoque
+//--------------------------------------------
+void salvarAvisosEstoque(Produtos *avisos, int tam_p){
+    FILE *fp;
+
+    if((fp = fopen("avisos.txt", "wb")) == NULL){
+        mostra_erro_e_encerra("Erro Interno: Erro ao abrir arquivo.");
+    }
+
+    fwrite(&tam_p, sizeof(int), 1, fp);
+    fwrite(avisos, sizeof(Produtos), tam_p, fp);
+
+    fclose(fp);
+}
+
+//--------------------------------------------
+// Lê e retorna os avisos salvos no arquivo
+//--------------------------------------------
+Produtos* lerArquivoAvisos(int *tam_p){
+    FILE *fp = fopen("avisos.txt", "rb");
+
+    if(fp){
+
+        fread(tam_p, sizeof(int), 1, fp);
+        Produtos *avisos = (Produtos *)malloc((*tam_p) * sizeof(Produtos));
+        fread(avisos, sizeof(Produtos), (*tam_p), fp);
+        fclose(fp);
+        return avisos;
+    }
+
+    return NULL;
+}
+
+
+

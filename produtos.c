@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "arquivos.h"
 #include "produtos.h"
 #include "interface.h"
 
@@ -126,7 +127,7 @@ char* verificaDescricao(Produtos *ini_p, char *descricao){
 
 //--------------------------------------------------------
 // Procedimento para adicionar os itens de um produto ao
-// estoque
+// estoque (recebe os valores para adição de itens)
 //--------------------------------------------------------
 Produtos* atualizaEstoqueAdd(Produtos *ini_produtos, int *confirma, int *quant_ad){
     int auxCodigo = 0;
@@ -161,7 +162,7 @@ void adicionarItens(Produtos *produto, int quant){
 
 //--------------------------------------------------------
 // Procedimento para excluir os itens de um produto ao
-// estoque
+// estoque (recebe os valores para exclusão de itens)
 //--------------------------------------------------------
 Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del){
     int auxCodigo = 0;
@@ -243,5 +244,51 @@ void listarProdutos(Produtos *ini_p){
     printf("\n\t%d Produtos encontrados.\n", cont);
 }
 
+//--------------------------------------------------------
+// Busca produtos com estoque irregular
+//--------------------------------------------------------
+int buscarEstoqueIrregular(Produtos *ini_p){
+    Produtos *aux = ini_p;
+    Produtos *avisos = NULL;
+    int tam_p = 0;
 
+    while(aux){
+        if(aux->quant == -1){
+            avisos = (Produtos *)realloc(avisos, (tam_p+1) * sizeof(Produtos));
+            avisos[tam_p].cod = aux->cod;
+            printf("avisos[tam_p].cod: %li", avisos[tam_p].cod);
+            scanf("%*c");
+            strcpy(avisos[tam_p].descricao, aux->descricao);
+            printf("avisos[tam_p].descricao: %s", avisos[tam_p].descricao);
+            scanf("%*c");
+            avisos[tam_p].quant = aux->quant;
+            printf("avisos[tam_p].quant: %d", avisos[tam_p].quant);
+            scanf("%*c");
+            avisos[tam_p].valor = aux->valor;
+            printf("avisos[tam_p].valor: %.2f", avisos[tam_p].valor);
+            scanf("%*c");
 
+            tam_p++;
+        }
+        aux = aux->prox;
+    }
+
+    if(avisos == NULL) return 0;
+    salvarAvisosEstoque(avisos, tam_p);
+    return tam_p;
+}
+
+//--------------------------------------------------------
+// Mostra na tela os avisos de irregularidade de estoque
+//--------------------------------------------------------
+void mostraAvisosEstoque(int tam_p){
+    Produtos *a = lerArquivoAvisos(&tam_p);
+
+    printf("\n\tATENÇÃO!! Os seguintes produtos tiveram saídas maiores do que \n\to registro de estoque no sistema.\n");
+    printf("\n\tVerifique seu estoque.");
+    printf("\n\tProdutos com estoque irregular: \n\n");
+    for(int i = 0; i < tam_p; i++){
+        printf("\t%li - %s - R$%.2f - (%d)\n", a[i].cod, a[i].descricao, a[i].valor, a[i].quant);
+    }
+    printf("\n\n");
+}

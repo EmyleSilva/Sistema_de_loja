@@ -34,8 +34,12 @@ Produtos *encontraProduto(Produtos *ini_p, long int codigo);
 */
 char* verificaDescricao(Produtos *ini_p, char *descricao);
 
+/*
+** Recebem os dados referentes às atualizações de estoque
+*/
 Produtos* atualizaEstoqueAdd(Produtos *ini_p, int *confirma, int *quant_ad);
 Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del);
+
 /*
 ** Adiciona itens ao estoque
 */
@@ -56,4 +60,20 @@ void consultaPreco(Produtos *ini_p);
 **
 */
 void listarProdutos(Produtos *ini_p);
+
+/*
+** Quando uma venda é realizada e há uma saída de estoque
+** maior do que a quantidade registrada no sistema, o produto
+** recebe um valor negativo, indicando necessidade de revisão
+** no estoque. A função busca esses produtos e retorna o numero
+** de irregularidades.
+*/
+int buscarEstoqueIrregular(Produtos *ini_p);
+
+/*
+** Mostra os avisos de irregularidade de estoque para o usuario
+** tem como parâmetro a quantidade de produtos irregulares,
+** para recuperar os dados do arquivo
+*/
+void mostraAvisosEstoque(int tam_p);
 #endif // PRODUTOS_H_INCLUDED
