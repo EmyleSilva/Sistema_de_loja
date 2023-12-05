@@ -1,0 +1,8 @@
+Relatório de Faturamento mensal -> Mês: 12
+
+Total de vendas do mês: 2
+Codigo Venda 		Data e hora 		Valor Venda
+1 		5/12/2023 0:12:19 		84.97
+2 		5/12/2023 0:12:51 		146.95
+Faturamento do mês: 231.92
+

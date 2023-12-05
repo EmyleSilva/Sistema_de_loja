@@ -3,6 +3,7 @@
 #include <time.h>
 #include "vendas.h"
 #include "produtos.h"
+#include "arquivos.h"
 #include "interface.h"
 
 //-------------------------------------------------------------
@@ -143,4 +144,96 @@ void dataHora(int *dia, int *mes, int *ano, int *hora, int *minutos, int *segund
     (*minutos) = t->tm_min;
     (*segundos) = t->tm_sec;
 }
+
+//------------------------------------------------------------
+// Gera os nomes dos arquivos para relatórios mensais do
+// faturamento de vendas
+//------------------------------------------------------------
+char* geraNomeRelatorio(int mes){
+    char *nomeArq[] = {
+        "",
+        "relatorios/janeiro.txt",
+        "relatorios/fevereiro.txt",
+        "relatorios/março.txt",
+        "relatorios/abril.txt",
+        "relatorios/maio.txt",
+        "relatorios/junho.txt",
+        "relatorios/julho.txt",
+        "relatorios/agosto.txt",
+        "relatorios/setembro.txt",
+        "relatorios/outubro.txt",
+        "relatorios/novembro.txt",
+        "relatorios/dezembro.txt"
+    };
+
+    return nomeArq[mes];
+
+}
+
+//-------------------------------------------------------------
+// Recupera os dados de vendas para gerar relátório
+//-------------------------------------------------------------
+void gerarRelatorioFaturamento(Vendas *ini_vendas, int mes){
+    Vendas *aux = ini_vendas;
+    Vendas *relatorio = NULL;
+
+    float total_periodo = 0.0;
+    int tamV = 0;
+    char *nomeArq = geraNomeRelatorio(mes);
+    printf("nomeArq: %s\n", nomeArq);
+    scanf("%*c");
+    while(aux){
+        if(aux->mes == mes) {
+            relatorio = (Vendas *)realloc(relatorio, (tamV+1) * sizeof(Vendas));
+            relatorio[tamV].codigo = aux->codigo;
+            printf("nomeArq: %d\n", relatorio[tamV].codigo);
+            scanf("%*c");
+            relatorio[tamV].dia = aux->dia;
+            relatorio[tamV].mes = aux->mes;
+            relatorio[tamV].ano = aux->ano;
+            relatorio[tamV].hora = aux->hora;
+            relatorio[tamV].minutos = aux->minutos;
+            relatorio[tamV].segundos = aux->segundos;
+            relatorio[tamV].total = aux->total;
+            tamV++;
+            total_periodo += aux->total;
+        }
+        aux = aux->prox;
+    }
+
+    if(relatorio){
+        salvarRelatorio(nomeArq, relatorio, tamV, total_periodo, mes);
+    }
+
+}
+
+//-------------------------------------------------------------
+// Mostra na tela o relatorio de faturamento do mes
+//-------------------------------------------------------------
+void mostrarRelatorioFaturamento(int mes){
+    FILE *fp;
+    char *nomeArq = geraNomeRelatorio(mes);
+    int tamV = 0;
+    float total_periodo = 0.0;
+
+    fp = fopen(nomeArq, "r");
+    if(fp == NULL){
+        printf("\n\n\tNenhuma venda realizada no periodo informado\n");
+    }else{
+        Vendas *r = lerArquivoRelatorio(nomeArq, &tamV, &total_periodo);
+
+        limpaTela();
+        printf("\n\tRelatório de Faturamento mensal -> Mês: %d\n\n", mes);
+        printf("\tCodigo Venda \t\tData e hora \t\tValor Venda\n");
+        for(int i = 0; i < tamV; i++){
+            printf("\t%d \t\t%d/%d/%d %2d:%2d:%2d \t\t%.2f\n", r[i].codigo, r[i].dia, r[i].mes, r[i].ano, r[i].hora,
+                    r[i].minutos, r[i].segundos, r[i].total);
+        }
+        printf("\tTotal de vendas do mês: %d\n", tamV);
+        printf("\tFaturamento do mês: %.2f\n\n", total_periodo);
+    }
+}
+
+
+
 

@@ -51,4 +51,19 @@ void dataHora(int *dia, int *mes, int *ano, int *hora, int *minutos,int *segundo
 */
 void mostrarNotaFiscal(Itens *produtos, int tam, float totalVenda);
 
+/*
+** Gera o nome de arquivo para relatório de faturamentos
+*/
+char* geraNomeRelatorio(int mes);
+
+/*
+** Gera relatórios de faturamentos mensais
+*/
+void gerarRelatorioFaturamento(Vendas *ini_vendas, int mes);
+
+/*
+** Mostra na tela o relatório de faturamento do mês
+*/
+void mostrarRelatorioFaturamento(int mes);
+
 #endif // VENDAS_H_INCLUDED

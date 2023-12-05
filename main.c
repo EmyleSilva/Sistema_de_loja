@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
     char nomeArq_v[20] = "vendas.txt";
 
     int opt_menu = 0, opt_p = 0, opt_v = 0, opt_e = 0;
-    int quant_p = 0, quant_v = 0; //Controle de quantidadde para manipulação de arquivos.
+    int quant_p = 0, quant_v = 0, quant_r = 0, quant_avisos = 0; //Controle de quantidadde para manipulação de arquivos.
     int aux = 0, confirma = 0;
     long int auxCodigo = 0;
 
@@ -34,9 +34,10 @@ int main(int argc, char* argv[])
 
     //Variaveis para opções de menu
     char menuPrincipal[][50] = {"Produtos", "Vendas", "Encerrar"}; //3 opções
-    char menuProdutos[][50] = {"Adicionar Produtos", "Estoque", "Retornar"};//3 opções
+    char menuProdutos[][50] = {"Adicionar Produtos", "Estoque", "Avisos de Estoque","Retornar"};//4 opções
     char menuEstoque[][50] = {"Listar Produtos", "Adicionar Itens", "Excluir Itens", "Consultar Preço", "Retornar"}; //5 opções
-    char menuVendas[][50] = {"Realizar Venda", "Listar Vendas" ,"Retornar"}; //3 opções
+    char menuVendas[][50] = {"Realizar Venda", "Listar Vendas" , "Relatório de Faturamento", "Retornar"}; //4 opções
+    char meses[][50] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
 
     //Inicio do menu
     do{
@@ -50,7 +51,7 @@ int main(int argc, char* argv[])
             //Menu de produtos
             do{
                 limpaTela();
-                menu(menuProdutos, 3);
+                menu(menuProdutos, 4);
                 scanf("%d%*c", &opt_p);
 
                 switch(opt_p){
@@ -129,7 +130,12 @@ int main(int argc, char* argv[])
                         }while(opt_e);
                     break;//FIM DO MENU DE ESTOQUE
 
-                    case 3: //Retornar ao menu principal
+                    case 3: //Relatório de estoque
+                        limpaTela();
+                        /*quant_avisos = avisosEstoque(ini_produtos, quant_avisos);*/
+                    break;
+
+                    case 4: //Retornar ao menu principal
                         opt_p = 0;
                     break;
 
@@ -145,7 +151,7 @@ int main(int argc, char* argv[])
 
                 do{
                     limpaTela();
-                    menu(menuVendas, 3);
+                    menu(menuVendas, 4);
                     scanf("%d%*c", &opt_v);
 
                     switch(opt_v){
@@ -172,7 +178,20 @@ int main(int argc, char* argv[])
                             mensagem_final(0);
                         break;
 
-                        case 3:
+                        case 3: //Relatório de Faturamento
+                            limpaTela();
+                            printf("\n\tSelecione um mês para gerar o relatório: \n");
+                            menu(meses, 12);
+                            scanf("%d%*c", &aux);
+
+                            gerarRelatorioFaturamento(ini_vendas, aux);
+                            limpaTela();
+                            mostrarRelatorioFaturamento(aux);
+                            mensagem_final(0);
+
+                        break;
+
+                        case 4:
                             opt_v = 0;
                         break;
 

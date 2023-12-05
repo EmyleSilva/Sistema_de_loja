@@ -157,5 +157,58 @@ Vendas* inicializaVendas(Vendas **ini_v, int *quant_v, char *nomeArq){
 }
 
 
+//********************************************
+//   Funções para manipulações de relatorios
+//********************************************
 
+//--------------------------------------------
+// Gera e salva o relatório de faturamento do
+// mês
+//--------------------------------------------
+void salvarRelatorio(char *nomeArq, Vendas *r, int tamV, float total_periodo, int mes){
+    FILE *fp;
+
+    if((fp = fopen(nomeArq, "w")) == NULL){
+        mostra_erro_e_encerra("Erro Interno: Erro ao criar arquivo.");
+    }
+
+    fprintf(fp, "Relatório de Faturamento mensal -> Mês: %d\n\n", mes);
+    fprintf(fp, "Total de vendas do mês: %d\n", tamV);
+    fprintf(fp, "Codigo Venda \t\tData e hora \t\tValor Venda\n");
+    for(int i = 0; i < tamV; i++){
+        fprintf(fp, "%d \t\t%d/%d/%d %d:%d:%d \t\t%.2f\n", r[i].codigo, r[i].dia, r[i].mes, r[i].ano, r[i].hora,
+                r[i].minutos, r[i].segundos, r[i].total);
+    }
+    fprintf(fp, "Faturamento do mês: %.2f\n\n", total_periodo);
+
+    fclose(fp);
+}
+
+//--------------------------------------------
+// Lê o arquivo do faturamento do mes
+//--------------------------------------------
+Vendas* lerArquivoRelatorio(char *nomeArq, int *tamV, float *total_periodo){
+    FILE *fp;
+
+    if((fp = fopen(nomeArq, "r")) == NULL){
+        mostra_erro_e_encerra("Erro Interno: Não foi possivel abrir o arquivo de leitura.");
+    }
+
+    int mes;
+
+    fscanf(fp, "Relatório de Faturamento mensal -> Mês: %d\n\n", &mes);
+    fscanf(fp, "Total de vendas do mês: %d\n", tamV);
+
+    Vendas *r = (Vendas *)malloc((*tamV) * sizeof(Vendas));
+
+    fscanf(fp, "Codigo Venda \t\tData e hora \t\tValor Venda\n");
+    for(int i = 0; i < (*tamV); i++){
+        fscanf(fp, "%d \t\t%d/%d/%d %d:%d:%d \t\t%f\n", &r[i].codigo, &r[i].dia, &r[i].mes, &r[i].ano, &r[i].hora,
+                &r[i].minutos, &r[i].segundos, &r[i].total);
+    }
+    fscanf(fp, "Faturamento do mês: %f\n\n", total_periodo);
+
+    fclose(fp);
+    return r;
+}
 
