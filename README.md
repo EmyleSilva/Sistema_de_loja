@@ -10,7 +10,7 @@ Projeto de um sistema de loja desenvolvido para a disciplina de Linguagem de Pro
 - <a href="#tecnologias-utilizadas">Tecnlogias Utilizadas</a>
 - <a href="#pre-requisitos">Pré-Requisitos</a>
 - <a href="#estrutura">Estrutura</a>
-- <a href="#configuracao-do-projeto">Configuração do Projeto</a>
+- <a href="#rodar">Configuração do Projeto</a>
 
 ## 💻Funcionalidades do Projeto
 - [x] Cadastro de Produtos
@@ -20,13 +20,13 @@ Projeto de um sistema de loja desenvolvido para a disciplina de Linguagem de Pro
 
 ## 🛠️Tecnologias Utilizadas
 - Linguagem C
-- IDE Code::blocks
+- IDE Code::Blocks
 
 ## ✅Pré-Requisitos
 Para rodar o código do projeto, você precisará do seguinte:
 
 1. Compilador C: certifique-se de ter um compilador C instalado em seu sistema (recomendado: GCC);
-2. IDE Code::blocks: Faça o download e instalação do code::blocks, disponível em https://www.codeblocks.org/downloads/ 
+2. IDE Code::Blocks: Faça o download e instalação do Code::Blocks, disponível em https://www.codeblocks.org/downloads/ 
 
 ## 📂Estrutura
 
