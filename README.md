@@ -7,10 +7,10 @@ Projeto de um sistema de loja desenvolvido para a disciplina de Linguagem de Pro
 
 ## Índice 
 - <a href="#funcionalidades-do-projeto">Funcionalidades do Projeto</a>
-- <a href="#tecnologias-utilizadas">Tecnlogias Utilizadas</a>
-- <a href="#pre-requisitos">Pré-Requisitos</a>
+- <a href="# tecnologias-utilizadas">Tecnlogias Utilizadas</a>
+- <a href="#pré-requisitos">Pré-Requisitos</a>
 - <a href="#estrutura">Estrutura</a>
-- <a href="#rodar">Configuração do Projeto</a>
+- <a href="# configuracao-do-projeto">Configuração do Projeto</a>
 
 ## 💻Funcionalidades do Projeto
 - [x] Cadastro de Produtos
