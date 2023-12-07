@@ -50,7 +50,7 @@ Produtos* lerArquivosProdutos(char *nomeArq, int quantidade_p){
     char buffer[100];
 
     if((fp_p = fopen(nomeArq, "r")) == NULL){
-        mostra_erro_e_encerra("\n\tErro ao abrir arquivo.");
+        mostra_erro_e_encerra(ERRO_ARQ_R);
     }
     fscanf(fp_p, "%li\n\n", &lixo);
     for(int i = 0; i < quantidade_p; i++){
@@ -72,7 +72,7 @@ void salvarProdutos(char *nomeArq, int quant_p, Produtos *ini_p){
     Produtos *aux = ini_p;
 
     if((fp_p = fopen(nomeArq, "w")) == NULL){
-        mostra_erro_e_encerra("Erro Interno: O arquivo não pode ser aberto.");
+        mostra_erro_e_encerra(ERRO_ARQ_W);
     }
 
     fprintf(fp_p, "%d\n\n", quant_p);
@@ -94,7 +94,7 @@ void salvarVendas(char *nomeArq, int quant_v, Vendas *ini_v){
     Vendas *aux = ini_v;
 
     if((fp_v = fopen(nomeArq, "wb"))==NULL){
-        mostra_erro_e_encerra("Erro Interno: o arquivo não pode ser aberto.");
+        mostra_erro_e_encerra(ERRO_ARQ_W);
     }
     fwrite(&quant_v, sizeof(int), 1, fp_v);
     while(aux){
@@ -146,7 +146,7 @@ Vendas* inicializaVendas(Vendas **ini_v, int *quant_v, char *nomeArq){
                 *ini_v = novo;
                 quantidade--;
             }else{
-                mostra_erro_e_encerra("Erro Interno: Memória Insuficiente");
+                mostra_erro_e_encerra(ERRO_MEMORIA);
             }
         }
         fclose(fp_v);
@@ -168,7 +168,7 @@ void salvarRelatorio(char *nomeArq, Vendas *r, int tamV, float total_periodo, in
     FILE *fp;
 
     if((fp = fopen(nomeArq, "w")) == NULL){
-        mostra_erro_e_encerra("Erro Interno: Erro ao criar arquivo.");
+        mostra_erro_e_encerra(ERRO_ARQ_W);
     }
 
     fprintf(fp, "Relatório de Faturamento mensal -> Mês: %d\n\n", mes);
@@ -190,7 +190,7 @@ Vendas* lerArquivoRelatorio(char *nomeArq, int *tamV, float *total_periodo){
     FILE *fp;
 
     if((fp = fopen(nomeArq, "r")) == NULL){
-        mostra_erro_e_encerra("Erro Interno: Não foi possivel abrir o arquivo de leitura.");
+        mostra_erro_e_encerra(ERRO_ARQ_R);
     }
 
     int mes;
@@ -218,7 +218,7 @@ void salvarAvisosEstoque(Produtos *avisos, int tam_p){
     FILE *fp;
 
     if((fp = fopen("avisos.txt", "wb")) == NULL){
-        mostra_erro_e_encerra("Erro Interno: Erro ao abrir arquivo.");
+        mostra_erro_e_encerra(ERRO_ARQ_W);
     }
 
     fwrite(&tam_p, sizeof(int), 1, fp);

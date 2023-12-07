@@ -44,7 +44,7 @@ Produtos* insereProduto(Produtos *ini_p){
 
         novo->prox = ini_p;
     }else{
-        mostra_erro_e_encerra("Erro interno: Memoria insuficiente");
+        mostra_erro_e_encerra(ERRO_MEMORIA);
     }
 
     return novo;
@@ -216,11 +216,11 @@ void consultaPreco(Produtos *ini_p){
     if(auxEstoque){
         printf("\n\tDescrição: %s", auxEstoque->descricao);
         printf("\n\tPREÇO: R$ %.2f\n", auxEstoque->valor);
-        mensagem_final(0);
+        mensagem_final(FINALIZADA);
     }else{
         printf("\n\tProduto não cadastrado no sistema.\n");
         printf("\n\tRealize o cadastro do produto e tente novamente");
-        mensagem_final(2);
+        mensagem_final(FALHOU);
     }
 }
 

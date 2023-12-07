@@ -45,6 +45,7 @@ int main(int argc, char* argv[])
     //Inicio do menu
     do{
         limpaTela();
+        titulo("MENU PRINCIPAL");
         menu(menuPrincipal, 3);
         scanf("%d%*c", &opt_menu);
 
@@ -54,70 +55,77 @@ int main(int argc, char* argv[])
             //Menu de produtos
             do{
                 limpaTela();
+                titulo("PRODUTOS");
                 menu(menuProdutos, 4);
                 scanf("%d%*c", &opt_p);
 
                 switch(opt_p){
                     case 1: //Adicionar produtos
                         limpaTela();
+                        titulo("PRODUTOS - Adicionar Produtos");
                         ini_produtos = insereProduto(ini_produtos);
                         salvarProdutos(nomeArq_p, ++quant_p, ini_produtos);
-                        mensagem_final(0);
+                        mensagem_final(FINALIZADA);
                     break;
 
                     case 2: //MENU DE ESTOQUE
                         do{
                             limpaTela();
+                            titulo("ESTOQUE");
                             menu(menuEstoque, 5);
                             scanf("%d%*c", &opt_e);
 
                             switch(opt_e){
                                 case 1: //Lista os produtos em estoque
                                     limpaTela();
+                                    titulo("ESTOQUE - Listar Produtos");
                                     listarProdutos(ini_produtos);
-                                    mensagem_final(0);
+                                    mensagem_final(FINALIZADA);
                                 break;
 
                                 case 2:{ //Adiciona itens ao estoque
                                     limpaTela();
+                                    titulo("ESTOQUE - Adicionar Itens");
                                     Produtos *auxEstoque = atualizaEstoqueAdd(ini_produtos, &confirma, &aux);
                                     if(auxEstoque){
                                         if(confirma == 1) {
                                             adicionarItens(auxEstoque, aux);
                                             salvarProdutos(nomeArq_p, quant_p, ini_produtos);
-                                            mensagem_final(0);
+                                            mensagem_final(FINALIZADA);
                                         }else{
-                                            mensagem_final(1);
+                                            mensagem_final(CANCELADA);
                                         }
                                     }else{
                                         printf("\n\tProduto não cadastrado no sistema.\n");
                                         printf("\n\tRealize o cadastro do produto e tente novamente");
                                         free(auxEstoque);
-                                        mensagem_final(2);
+                                        mensagem_final(FALHOU);
                                     }
                                 break;
                                 }
                                 case 3: {//Excluir itens do estoque
                                     limpaTela();
+                                    titulo("ESTOQUE - Adicionar Excluir");
                                     Produtos *auxEstoque = atualizaEstoqueDel(ini_produtos, &confirma, &aux);
                                     if(auxEstoque){
                                         if(confirma == 1) {
                                             excluirItens(auxEstoque, aux, 0);
                                             salvarProdutos(nomeArq_p, quant_p, ini_produtos);
-                                            mensagem_final(0);
+                                            mensagem_final(FINALIZADA);
                                         }else{
-                                            mensagem_final(1);
+                                            mensagem_final(CANCELADA);
                                         }
                                     }else{
                                         printf("\n\tProduto não cadastrado no sistema.\n");
                                         printf("\n\tRealize o cadastro do produto e tente novamente");
                                         free(auxEstoque);
-                                        mensagem_final(2);
+                                        mensagem_final(FALHOU);
                                     }
                                 break;
                                 }
                                 case 4://Consulta de preço (pelo código)
                                     limpaTela();
+                                    titulo("ESTOQUE - Consultar Preço");
                                     consultaPreco(ini_produtos);
                                 break;
 
@@ -133,8 +141,9 @@ int main(int argc, char* argv[])
                         }while(opt_e);
                     break;//FIM DO MENU DE ESTOQUE
 
-                    case 3: //Relatório de estoque
+                    case 3: //avisos de estoque
                         limpaTela();
+                        titulo("PRODUTOS - Avisos de Estoque");
                         quant_avisos = buscarEstoqueIrregular(ini_produtos);
 
                         if(quant_avisos){
@@ -142,7 +151,7 @@ int main(int argc, char* argv[])
                         }else{
                             printf("\n\n\t\tEstoque sem irregularidades!\n\n");
                         }
-                        mensagem_final(0);
+                        mensagem_final(FINALIZADA);
                     break;
 
                     case 4: //Retornar ao menu principal
@@ -161,12 +170,14 @@ int main(int argc, char* argv[])
 
                 do{
                     limpaTela();
+                    titulo("VENDAS");
                     menu(menuVendas, 4);
                     scanf("%d%*c", &opt_v);
 
                     switch(opt_v){
                         case 1:{
                             limpaTela();
+                            titulo("VENDAS - Realizar Venda");
                             float totalVenda = 0.0;
                             int quant_prod = 0;
                             Itens *nvenda = realizaVenda(ini_produtos, &totalVenda, &quant_prod);
@@ -175,21 +186,23 @@ int main(int argc, char* argv[])
                                 ini_vendas = cadastraVenda(ini_vendas, nvenda, quant_prod ,totalVenda, &quant_v);
                                 salvarVendas(nomeArq_v, ++quant_v, ini_vendas);
                                 salvarProdutos(nomeArq_p, quant_p, ini_produtos);
-                                mensagem_final(0);
+                                mensagem_final(FINALIZADA);
                             }else{
-                                mensagem_final(1);
+                                mensagem_final(CANCELADA);
                             }
                             break;
                         }
 
                         case 2:
                             limpaTela();
+                            titulo("VENDAS - Listar Vendas");
                             listarVendas(ini_vendas);
-                            mensagem_final(0);
+                            mensagem_final(FINALIZADA);
                         break;
 
                         case 3: //Relatório de Faturamento
                             limpaTela();
+                            titulo("VENDAS - Relatório de Faturamento");
                             printf("\n\tSelecione um mês para gerar o relatório: \n");
                             menu(meses, 12);
                             scanf("%d%*c", &aux);
@@ -197,7 +210,7 @@ int main(int argc, char* argv[])
                             gerarRelatorioFaturamento(ini_vendas, aux);
                             limpaTela();
                             mostrarRelatorioFaturamento(aux);
-                            mensagem_final(0);
+                            mensagem_final(FINALIZADA);
 
                         break;
 

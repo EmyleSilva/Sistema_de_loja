@@ -81,7 +81,7 @@ void mostrarNotaFiscal(Itens *produtos, int tam, float totalVenda){
     printf("\t----------------------------------------------------------------------\n");
     printf("\tItem - codigo - descrição - Preço uni. - Quant. - Preço Tot.");
     for(int i = 0; i < tam; i++){
-        printf("\n\t%d - %li - %s - R$%.2f - %d - R$%.2f",
+        printf("\n\t%d - %li - %s - R$%.2f - %d - R$%.2f\n",
         i+1, produtos[i].prodItem.cod, produtos[i].prodItem.descricao, produtos[i].prodItem.valor, produtos[i].quantidadeItem, produtos[i].valorTotalItem);
     }
     printf("\n\tValor total da venda: R$%.2f\n", totalVenda);
@@ -102,7 +102,7 @@ Vendas* cadastraVenda(Vendas *ini_v, Itens *prods, int tamProds, float totalVend
 
         novo->prox = ini_v;
     }else{
-        mostra_erro_e_encerra("\n\tERRO INTERNO: Memória insuficiente\n");
+        mostra_erro_e_encerra(ERRO_MEMORIA);
     }
     return novo;
 }

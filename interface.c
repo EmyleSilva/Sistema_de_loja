@@ -13,6 +13,13 @@ void menu(char opcoes[][50], int quant){
 }
 
 //----------------------------------------------------------------------------
+// Exibe na tela os títulos das funções
+//----------------------------------------------------------------------------
+void titulo(char titulos[100]){
+    printf("\n\n\t *************************** %s *************************** \n\n", titulos);
+}
+
+//----------------------------------------------------------------------------
 //Limpa a tela
 //----------------------------------------------------------------------------
 void limpaTela(){
@@ -23,7 +30,7 @@ void limpaTela(){
 //Exibe na tela uma mensagem especificando um erro, e encerra o programa
 //----------------------------------------------------------------------------
 void mostra_erro_e_encerra(char tipo[]){
-    printf("\n\tERRO: %s", tipo);
+    printf("\n\t%s", tipo);
     exit(1);
 }
 
@@ -35,14 +42,14 @@ void mensagem_final(int status_operação){
     //0 - Finalizada
     //1 - Cancelada
     //2 - Falhou
-    if(!status_operação){
+    if(status_operação == FINALIZADA){
         printf("\n\t\t============================================================\n");
         printf("\n\t\t|                                                          |\n");
         printf("\n\t\t|                Operação Finalizada                       |\n");
         printf("\n\t\t|                Aperte ENTER para continuar....           |\n");
         printf("\n\t\t|                                                          |\n");
         printf("\n\t\t============================================================\n\n");
-    }else if(status_operação == 1){
+    }else if(status_operação == CANCELADA){
         printf("\n\t\t============================================================\n");
         printf("\n\t\t|                                                          |\n");
         printf("\n\t\t|                Operação Cancelada                        |\n");
