@@ -130,7 +130,7 @@ char* verificaDescricao(Produtos *ini_p, char *descricao){
 // estoque (recebe os valores para adição de itens)
 //--------------------------------------------------------
 Produtos* atualizaEstoqueAdd(Produtos *ini_produtos, int *confirma, int *quant_ad){
-    int auxCodigo = 0;
+    long int auxCodigo = 0;
 
     printf("\n\tInforme o código do produto: ");
     printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
@@ -165,7 +165,7 @@ void adicionarItens(Produtos *produto, int quant){
 // estoque (recebe os valores para exclusão de itens)
 //--------------------------------------------------------
 Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del){
-    int auxCodigo = 0;
+    long int auxCodigo = 0;
 
     printf("\n\tInforme o código do produto: ");
     printf("\n\tCódigo: "); scanf("%li%*c", &auxCodigo);
@@ -210,7 +210,7 @@ void consultaPreco(Produtos *ini_p){
     long int auxCodigo = 0;
 
     printf("\n\tDigite o código do produto: ");
-    scanf("%d%*c", &auxCodigo);
+    scanf("%li%*c", &auxCodigo);
 
     Produtos *auxEstoque = encontraProduto(ini_p, auxCodigo);
     if(auxEstoque){

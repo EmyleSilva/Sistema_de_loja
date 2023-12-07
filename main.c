@@ -27,9 +27,8 @@ int main(int argc, char* argv[])
     char nomeArq_v[20] = "vendas.txt";
 
     int opt_menu = 0, opt_p = 0, opt_v = 0, opt_e = 0;
-    int quant_p = 0, quant_v = 0, quant_r = 0, quant_avisos = 0; //Controle de quantidadde para manipulação de arquivos.
+    int quant_p = 0, quant_v = 0, quant_avisos = 0; //Controle de quantidadde para manipulação de arquivos.
     int aux = 0, confirma = 0;
-    long int auxCodigo = 0;
 
     //Inicializa o sistema buscando os dados já salvos em arquivos
     ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);

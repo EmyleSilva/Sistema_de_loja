@@ -27,7 +27,7 @@ void menu(char opcoes[][50], int quant);
 //----------------------------------------------------------------------------
 // Exibe na tela os títulos das funções
 //----------------------------------------------------------------------------
-void titulo(char titulos[100]);
+void titulo(char titulos[]);
 
 //----------------------------------------------------------------------------
 //Exibe na tela uma mensagem especificando um erro, e encerra o programa
