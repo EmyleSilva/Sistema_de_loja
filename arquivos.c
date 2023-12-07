@@ -6,7 +6,6 @@
 #include "interface.h"
 FILE *fp_p;
 
-
 //********************************************
 //   Funções para manipulações de clientes
 //********************************************
@@ -53,7 +52,7 @@ Produtos* lerArquivosProdutos(char *nomeArq, int quantidade_p){
     if((fp_p = fopen(nomeArq, "r")) == NULL){
         mostra_erro_e_encerra("\n\tErro ao abrir arquivo.");
     }
-    fscanf(fp_p, "%d\n\n", &lixo);
+    fscanf(fp_p, "%li\n\n", &lixo);
     for(int i = 0; i < quantidade_p; i++){
         fscanf(fp_p, "%li\n", &(aux[i].cod));
         fgets(buffer, sizeof(buffer), fp_p);

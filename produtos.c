@@ -256,17 +256,9 @@ int buscarEstoqueIrregular(Produtos *ini_p){
         if(aux->quant == -1){
             avisos = (Produtos *)realloc(avisos, (tam_p+1) * sizeof(Produtos));
             avisos[tam_p].cod = aux->cod;
-            printf("avisos[tam_p].cod: %li", avisos[tam_p].cod);
-            scanf("%*c");
             strcpy(avisos[tam_p].descricao, aux->descricao);
-            printf("avisos[tam_p].descricao: %s", avisos[tam_p].descricao);
-            scanf("%*c");
             avisos[tam_p].quant = aux->quant;
-            printf("avisos[tam_p].quant: %d", avisos[tam_p].quant);
-            scanf("%*c");
             avisos[tam_p].valor = aux->valor;
-            printf("avisos[tam_p].valor: %.2f", avisos[tam_p].valor);
-            scanf("%*c");
 
             tam_p++;
         }

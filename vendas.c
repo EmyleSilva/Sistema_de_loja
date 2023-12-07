@@ -50,7 +50,13 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
 
             (*totalVenda)+=valorTotal;
             (*quantidade_prod)++;
-            printf("\n\t%li - %s \t%.2f - %d - %.2f\n", aux->cod, aux->descricao, aux->valor, quant_itens, valorTotal);
+
+            limpaTela();
+            printf("\n\tATENÇÃO: Para finalizar a venda, pressione 0\n");
+            for(int i = 0; i < (*quantidade_prod); i++){
+                printf("\n\t%li - %s \t%.2f - %d - %.2f\n",produtos[i].prodItem.cod, produtos[i].prodItem.descricao,
+                                                           produtos[i].prodItem.valor, produtos[i].quantidadeItem, produtos[i].valorTotalItem);
+            }
 
             produtos = (Itens *)realloc(produtos, ((*quantidade_prod) + 1)*sizeof(Itens));
 
@@ -113,7 +119,7 @@ void listarVendas(Vendas *ini_v){
         for(; aux ; aux = aux->prox){
             cont++;
             printf("\n\t-------------------- Venda %d --------------------\n", cont);
-            printf("\tCódigo: %li\n", aux->codigo);
+            printf("\tCódigo: %d\n", aux->codigo);
             printf("\tData: %d/%d/%d\n", aux->dia, aux->mes, aux->ano);
             printf("\tHora: %d:%d:%d\n", aux->hora, aux->minutos,aux->segundos);
             for(int i = 0; i < aux->tamItem ; i++){
@@ -180,14 +186,10 @@ void gerarRelatorioFaturamento(Vendas *ini_vendas, int mes){
     float total_periodo = 0.0;
     int tamV = 0;
     char *nomeArq = geraNomeRelatorio(mes);
-    printf("nomeArq: %s\n", nomeArq);
-    scanf("%*c");
     while(aux){
         if(aux->mes == mes) {
             relatorio = (Vendas *)realloc(relatorio, (tamV+1) * sizeof(Vendas));
             relatorio[tamV].codigo = aux->codigo;
-            printf("nomeArq: %d\n", relatorio[tamV].codigo);
-            scanf("%*c");
             relatorio[tamV].dia = aux->dia;
             relatorio[tamV].mes = aux->mes;
             relatorio[tamV].ano = aux->ano;

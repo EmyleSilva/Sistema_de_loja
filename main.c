@@ -3,13 +3,14 @@
 ** O sistema tem como funções: armazenar clientes, produtos
 ** e realizar vendas.
 **
-** última atualização: 05/12/2023
+** última atualização: 06/12/2023
 ** Autor: Emyle Silva
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
 #include "interface.h"
 #include "produtos.h"
 #include "vendas.h"
@@ -17,6 +18,7 @@
 
 int main(int argc, char* argv[])
 {
+    setlocale(LC_ALL, "Portuguese");
     srand(time(NULL));
     Produtos *ini_produtos = NULL;
     Vendas   *ini_vendas   = NULL;
@@ -29,6 +31,7 @@ int main(int argc, char* argv[])
     int aux = 0, confirma = 0;
     long int auxCodigo = 0;
 
+    //Inicializa o sistema buscando os dados já salvos em arquivos
     ini_produtos = inicializaProdutos(nomeArq_p, &quant_p);
     ini_vendas = inicializaVendas(&ini_vendas, &quant_v, nomeArq_v);
 
@@ -213,6 +216,8 @@ int main(int argc, char* argv[])
 
             case 3: //ENCERRAR
                 opt_menu = 0;
+                free(ini_produtos);
+                free(ini_vendas);
                 finaliza_programa();
             break;
 
