@@ -12,7 +12,7 @@
 //-------------------------------------------------------------
 
 Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
-    printf("\n\tATENÇÃO: Para finalizar a venda, pressione 0\n");
+    printf("\n\tATENÇÃO: Para finalizar a venda, digite o código 0\n");
     int quant_itens = 0;
     long int codigo = 0;
     float valorTotal = 0.0;
@@ -52,7 +52,7 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
             (*quantidade_prod)++;
 
             limpaTela();
-            printf("\n\tATENÇÃO: Para finalizar a venda, pressione 0\n");
+            printf("\n\tATENÇÃO: Para finalizar a venda, digite o código 0\n");
             for(int i = 0; i < (*quantidade_prod); i++){
                 printf("\n\t%li - %s \t%.2f - %d - %.2f\n",produtos[i].prodItem.cod, produtos[i].prodItem.descricao,
                                                            produtos[i].prodItem.valor, produtos[i].quantidadeItem, produtos[i].valorTotalItem);

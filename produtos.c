@@ -161,7 +161,7 @@ void adicionarItens(Produtos *produto, int quant){
 }
 
 //--------------------------------------------------------
-// Procedimento para excluir os itens de um produto ao
+// Procedimento para excluir os itens de um produto em
 // estoque (recebe os valores para exclusão de itens)
 //--------------------------------------------------------
 Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del){
@@ -193,11 +193,11 @@ Produtos* atualizaEstoqueDel(Produtos *ini_p, int *confirma, int *quant_del){
 //--------------------------------------------------------
 void excluirItens(Produtos *produto, int quant, int tipo_operacao){
     switch(tipo_operacao){
-        case 0:
+        case T_ESTOQUE:
             produto->quant = (quant > produto->quant) ? 0 : (produto->quant)-quant;
         break;
 
-        case 1:
+        case T_VENDAS:
             produto->quant = (quant > produto->quant) ? -1 : (produto->quant)-quant;
         break;
     }

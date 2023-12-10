@@ -4,7 +4,7 @@
 /*
 ** Os defines T_ESTOQUE e T_VENDAS definem
 ** se o estoque está sendo atualizado durante
-** ou no próprio estoque.
+** uma venda ou no próprio estoque.
 */
 #define T_ESTOQUE 0
 #define T_VENDAS 1
