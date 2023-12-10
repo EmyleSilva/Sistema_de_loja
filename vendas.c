@@ -36,7 +36,7 @@ Itens* realizaVenda(Produtos *ini_p, float *totalVenda, int *quantidade_prod){
             printf("\tQuantidade: ");
             scanf("%d%*c", &quant_itens);
 
-            excluirItens(aux, quant_itens, 1);
+            excluirItens(aux, quant_itens, T_VENDAS);
             valorTotal = aux->valor * quant_itens;
 
             produtos[(*quantidade_prod)].prodItem.cod = codigo;

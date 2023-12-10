@@ -1,5 +1,5 @@
-#ifndef INTERFACE_H_INCLUDEDE
-#define INTERFACE_H_INCLUDEDE
+#ifndef INTERFACE_H_INCLUDED
+#define INTERFACE_H_INCLUDED
 
 /*
 ** Defines usados nas mensagens finais das operações

@@ -157,7 +157,7 @@ Produtos* atualizaEstoqueAdd(Produtos *ini_produtos, int *confirma, int *quant_a
 // Adicionar itens (quantidade) a um produto em estoque
 //--------------------------------------------------------
 void adicionarItens(Produtos *produto, int quant){
-    produto->quant += quant;
+    produto->quant += (produto->quant == -1) ? (quant + 1) : quant;
 }
 
 //--------------------------------------------------------

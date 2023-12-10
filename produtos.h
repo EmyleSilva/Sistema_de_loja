@@ -1,6 +1,14 @@
 #ifndef PRODUTOS_H_INCLUDED
 #define PRODUTOS_H_INCLUDED
 
+/*
+** Os defines T_ESTOQUE e T_VENDAS definem
+** se o estoque está sendo atualizado durante
+** ou no próprio estoque.
+*/
+#define T_ESTOQUE 0
+#define T_VENDAS 1
+
 typedef struct produtos{
     long int cod;
     char descricao[100];

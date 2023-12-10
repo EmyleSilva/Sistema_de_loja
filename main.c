@@ -3,7 +3,7 @@
 ** O sistema tem como funções: armazenar clientes, produtos
 ** e realizar vendas.
 **
-** última atualização: 06/12/2023
+** última atualização: 10/12/2023
 ** Autor: Emyle Silva
 */
 
@@ -104,11 +104,11 @@ int main(int argc, char* argv[])
                                 }
                                 case 3: {//Excluir itens do estoque
                                     limpaTela();
-                                    titulo("ESTOQUE - Adicionar Excluir");
+                                    titulo("ESTOQUE - Excluir Itens");
                                     Produtos *auxEstoque = atualizaEstoqueDel(ini_produtos, &confirma, &aux);
                                     if(auxEstoque){
                                         if(confirma == 1) {
-                                            excluirItens(auxEstoque, aux, 0);
+                                            excluirItens(auxEstoque, aux, T_ESTOQUE);
                                             salvarProdutos(nomeArq_p, quant_p, ini_produtos);
                                             mensagem_final(FINALIZADA);
                                         }else{
