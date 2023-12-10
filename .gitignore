@@ -7,7 +7,6 @@ bin/
 obj/
 
 # Arquivos de configuração do Code::Blocks
-*.cbp
 *.depend
 *.layout
 
