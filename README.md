@@ -6,11 +6,11 @@
 Projeto de um sistema de loja desenvolvido para a disciplina de Linguagem de Programação II.
 
 ## Índice 
-- <a href="#funcionalidades-do-projeto">Funcionalidades do Projeto</a>
-- <a href="# tecnologias-utilizadas">Tecnlogias Utilizadas</a>
-- <a href="#pré-requisitos">Pré-Requisitos</a>
-- <a href="#estrutura">Estrutura</a>
-- <a href="# configuracão-do-projeto">Configuração do Projeto</a>
+- [Funcionalidades do Projeto](#funcionalidades-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Pré-Requisitos](#pré-requisitos)
+- [Estrutura](#estrutura)
+- [Configuração do Projeto](#configuração-do-projeto)
 
 ## 💻Funcionalidades do Projeto
 - [x] Cadastro de Produtos
@@ -34,15 +34,13 @@ Para rodar o código do projeto, você precisará do seguinte:
 - 'relatorios/': Pasta onde serão armazenados os relatórios de faturamento gerados pelo sistema (não incluída no repositório).
 
 ## ⚙️Configuração do Projeto
-1. Crie um novo projeto do tipo 'Console Application' no code::blocks;
-2. No terminal, acesse o diretório do projeto criado;
-3. Execute o seguinte comando no terminal: 
+1. Clone o repositório usando o comando: 
 ```bash
 git clone https://github.com/EmyleSilva/Sistema_de_loja.git 
 ```
- Isso criará um subdiretório chamado 'Sistema_de_Loja' contendo todos os arquivos do repositório Git dentro do diretório do seu projeto.
+ Isso criará um diretório chamado 'Sistema_de_loja' com todos os arquivos do projeto.
 
-4. No code::blocks, adicione os arquivos-fonte do projeto clonado ao projeto atual;
-5. Crie a pasta 'relatorios' no mesmo diretório do projeto;
-6. Compile o projeto no code::blocks;
-7. Agora é só executar o código!
+2. Crie a pasta 'relatorios' no mesmo diretório do projeto;
+3. Abra o Code::Blocks e selecione "File->Open", navegue até o diretório do projeto e selecione o arquivo "sistema_loja_final.cbp";
+4. Pressione F9 para compilar e rodar o projeto (ou vá para "Build->Build and Run");
+5. Agora é só executar o código!
