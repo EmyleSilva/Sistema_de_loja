@@ -43,4 +43,3 @@ git clone https://github.com/EmyleSilva/Sistema_de_loja.git
 2. Crie a pasta 'relatorios' no mesmo diretório do projeto;
 3. Abra o Code::Blocks e selecione "File->Open", navegue até o diretório do projeto e selecione o arquivo "sistema_loja_final.cbp";
 4. Pressione F9 para compilar e rodar o projeto (ou vá para "Build->Build and Run");
-5. Agora é só executar o código!
