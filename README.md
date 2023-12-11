@@ -9,6 +9,7 @@ Projeto de um sistema de loja desenvolvido para a disciplina de Linguagem de Pro
 - [Funcionalidades do Projeto](#funcionalidades-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Pré-Requisitos](#pré-requisitos)
+- [Documentação do Projeto](#documentacao-do-projeto)
 - [Estrutura](#estrutura)
 - [Configuração do Projeto](#configuração-do-projeto)
 
@@ -32,6 +33,11 @@ Para rodar o código do projeto, você precisará do seguinte:
 
 - Arquivos-fonte do projeto (diretamente na raíz do projeto).
 - 'relatorios/': Pasta onde serão armazenados os relatórios de faturamento gerados pelo sistema (não incluída no repositório).
+- 'docs/': Contém a documentação do projeto.
+
+## 🗃️Documentação do Projeto
+
+-[Documentação Completa](./docs/index.html)
 
 ## ⚙️Configuração do Projeto
 1. Clone o repositório usando o comando: 
