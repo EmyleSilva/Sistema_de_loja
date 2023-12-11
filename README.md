@@ -9,8 +9,8 @@ Projeto de um sistema de loja desenvolvido para a disciplina de Linguagem de Pro
 - [Funcionalidades do Projeto](#funcionalidades-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Pré-Requisitos](#pré-requisitos)
-- [Documentação do Projeto](#documentacao-do-projeto)
 - [Estrutura](#estrutura)
+- [Documentação do Projeto](#documentacao-do-projeto)
 - [Configuração do Projeto](#configuração-do-projeto)
 
 ## 💻Funcionalidades do Projeto
@@ -37,7 +37,7 @@ Para rodar o código do projeto, você precisará do seguinte:
 
 ## 🗃️Documentação do Projeto
 
--[Documentação Completa](./docs/index.html)
+-[Documentação Completa](./docs/html/index.html)
 
 ## ⚙️Configuração do Projeto
 1. Clone o repositório usando o comando: 
