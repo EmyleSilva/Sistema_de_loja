@@ -1,0 +1,117 @@
+\hypertarget{structvendas}{}\doxysection{vendas Struct Reference}
+\label{structvendas}\index{vendas@{vendas}}
+
+
+Struct que representa uma venda.  
+
+
+
+
+{\ttfamily \#include $<$vendas.\+h$>$}
+
+
+
+Collaboration diagram for vendas\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structvendas_ab4b780224a913965af54214b34662cbc}\label{structvendas_ab4b780224a913965af54214b34662cbc}} 
+int {\bfseries tam\+Item}
+\item 
+int \mbox{\hyperlink{structvendas_a4111cd754bffd9bf6935869e651ea8da}{codigo}}
+\item 
+struct \mbox{\hyperlink{structitens}{itens}} $\ast$ \mbox{\hyperlink{structvendas_acae306c4b12a876cccaae0547c6be022}{item}}
+\item 
+int \mbox{\hyperlink{structvendas_a35438993c9ca50e6455cf55acdce18ce}{dia}}
+\item 
+int \mbox{\hyperlink{structvendas_a5d0fd3f619ac77f809018147568542fc}{mes}}
+\item 
+int \mbox{\hyperlink{structvendas_a41343938947b214597ccc126064a8123}{ano}}
+\item 
+int \mbox{\hyperlink{structvendas_a28dbef79fb8fae7a3d86c5a3bfe172ee}{hora}}
+\item 
+int \mbox{\hyperlink{structvendas_a21c25a3b1087760ada9bf00481731324}{minutos}}
+\item 
+int \mbox{\hyperlink{structvendas_aa01899f253db6815ba90666f94069e12}{segundos}}
+\item 
+float \mbox{\hyperlink{structvendas_a5d73c0da936066ef2eed06387f8f0a65}{total}}
+\item 
+struct \mbox{\hyperlink{structvendas}{vendas}} $\ast$ \mbox{\hyperlink{structvendas_a2597fe384ed9b89466fc54beba8a461d}{prox}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct que representa uma venda. 
+
+Guarda as informações referentes às vendas realizadas, em forma de lista encadeada. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structvendas_a41343938947b214597ccc126064a8123}\label{structvendas_a41343938947b214597ccc126064a8123}} 
+\index{vendas@{vendas}!ano@{ano}}
+\index{ano@{ano}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{ano}{ano}}
+{\footnotesize\ttfamily int vendas\+::ano}
+
+$<$Mês em que a venda foi realizada. \mbox{\Hypertarget{structvendas_a4111cd754bffd9bf6935869e651ea8da}\label{structvendas_a4111cd754bffd9bf6935869e651ea8da}} 
+\index{vendas@{vendas}!codigo@{codigo}}
+\index{codigo@{codigo}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{codigo}{codigo}}
+{\footnotesize\ttfamily int vendas\+::codigo}
+
+$<$Quantidade de itens vendidos (tamanho do vetor de itens) \mbox{\Hypertarget{structvendas_a35438993c9ca50e6455cf55acdce18ce}\label{structvendas_a35438993c9ca50e6455cf55acdce18ce}} 
+\index{vendas@{vendas}!dia@{dia}}
+\index{dia@{dia}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{dia}{dia}}
+{\footnotesize\ttfamily int vendas\+::dia}
+
+$<$Vetor do tipo Itens ( \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}} ), armazena os \mbox{\hyperlink{structprodutos}{produtos}} vendidos 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{structvendas_a28dbef79fb8fae7a3d86c5a3bfe172ee}\label{structvendas_a28dbef79fb8fae7a3d86c5a3bfe172ee}} 
+\index{vendas@{vendas}!hora@{hora}}
+\index{hora@{hora}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{hora}{hora}}
+{\footnotesize\ttfamily int vendas\+::hora}
+
+$<$Ano em que a venda foi realizada. \mbox{\Hypertarget{structvendas_acae306c4b12a876cccaae0547c6be022}\label{structvendas_acae306c4b12a876cccaae0547c6be022}} 
+\index{vendas@{vendas}!item@{item}}
+\index{item@{item}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{item}{item}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structitens}{itens}}$\ast$ vendas\+::item}
+
+$<$Código da venda \mbox{\Hypertarget{structvendas_a5d0fd3f619ac77f809018147568542fc}\label{structvendas_a5d0fd3f619ac77f809018147568542fc}} 
+\index{vendas@{vendas}!mes@{mes}}
+\index{mes@{mes}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{mes}{mes}}
+{\footnotesize\ttfamily int vendas\+::mes}
+
+$<$Dia em que a venda foi realizada. \mbox{\Hypertarget{structvendas_a21c25a3b1087760ada9bf00481731324}\label{structvendas_a21c25a3b1087760ada9bf00481731324}} 
+\index{vendas@{vendas}!minutos@{minutos}}
+\index{minutos@{minutos}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{minutos}{minutos}}
+{\footnotesize\ttfamily int vendas\+::minutos}
+
+$<$Hora em que a venda foi realizada. \mbox{\Hypertarget{structvendas_a2597fe384ed9b89466fc54beba8a461d}\label{structvendas_a2597fe384ed9b89466fc54beba8a461d}} 
+\index{vendas@{vendas}!prox@{prox}}
+\index{prox@{prox}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{prox}{prox}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structvendas}{vendas}}$\ast$ vendas\+::prox}
+
+$<$Valor total da venda. \mbox{\Hypertarget{structvendas_aa01899f253db6815ba90666f94069e12}\label{structvendas_aa01899f253db6815ba90666f94069e12}} 
+\index{vendas@{vendas}!segundos@{segundos}}
+\index{segundos@{segundos}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{segundos}{segundos}}
+{\footnotesize\ttfamily int vendas\+::segundos}
+
+$<$Minuto em que a venda foi realizada. \mbox{\Hypertarget{structvendas_a5d73c0da936066ef2eed06387f8f0a65}\label{structvendas_a5d73c0da936066ef2eed06387f8f0a65}} 
+\index{vendas@{vendas}!total@{total}}
+\index{total@{total}!vendas@{vendas}}
+\doxysubsubsection{\texorpdfstring{total}{total}}
+{\footnotesize\ttfamily float vendas\+::total}
+
+$<$Segundo em que a venda foi realizada. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vendas_8h}{vendas.\+h}}\end{DoxyCompactItemize}

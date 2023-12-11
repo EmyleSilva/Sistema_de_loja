@@ -1,0 +1,227 @@
+\hypertarget{vendas_8c}{}\doxysection{vendas.\+c File Reference}
+\label{vendas_8c}\index{vendas.c@{vendas.c}}
+
+
+Implementação das funções de vendas.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vendas.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}produtos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arquivos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface.\+h\char`\"{}}\newline
+Include dependency graph for vendas.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}} $\ast$ \mbox{\hyperlink{vendas_8c_a71f50102fe20a99b23862b3c1483d1f6}{realiza\+Venda}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p, float $\ast$total\+Venda, int $\ast$quantidade\+\_\+prod)
+\begin{DoxyCompactList}\small\item\em Realiza uma venda. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vendas_8c_a4254707550b588056e72773aa689ec89}{mostrar\+Nota\+Fiscal}} (\mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}} $\ast$\mbox{\hyperlink{structprodutos}{produtos}}, int tam, float total\+Venda)
+\begin{DoxyCompactList}\small\item\em Mostra a nota fiscal da venda. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ \mbox{\hyperlink{vendas_8c_aa5b7cfbf5449858a19ef063534842d53}{cadastra\+Venda}} (\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ini\+\_\+v, \mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}} $\ast$prods, int tam\+Prods, float total\+Venda, int $\ast$quant\+\_\+v)
+\begin{DoxyCompactList}\small\item\em Cadastra a venda. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vendas_8c_a3bb2a15de64c145a658f96fe77ddfe6f}{listar\+Vendas}} (\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ini\+\_\+v)
+\begin{DoxyCompactList}\small\item\em Mostrar as vendas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vendas_8c_a69ef7c6db6c2f38c204f7d3b98926831}{data\+Hora}} (int $\ast$dia, int $\ast$mes, int $\ast$ano, int $\ast$hora, int $\ast$minutos, int $\ast$segundos)
+\begin{DoxyCompactList}\small\item\em Defini data e hora de uma venda. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{vendas_8c_adbf717665da5413daa897a305c7a098d}{gera\+Nome\+Relatorio}} (int mes)
+\begin{DoxyCompactList}\small\item\em Gera nome de arquivo para relatório de faturamentos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vendas_8c_abc6e741118d3fcc0ea2a5d9f40d1db28}{gerar\+Relatorio\+Faturamento}} (\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ini\+\_\+vendas, int mes)
+\begin{DoxyCompactList}\small\item\em Gera o relatório de faturamento mensal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vendas_8c_aadfc482814d92abcbe9db2675f3b5520}{mostrar\+Relatorio\+Faturamento}} (int mes)
+\begin{DoxyCompactList}\small\item\em Mostra na tela o relatório de faturamento do mês. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação das funções de vendas. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vendas_8h}{vendas.\+h}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vendas_8c_aa5b7cfbf5449858a19ef063534842d53}\label{vendas_8c_aa5b7cfbf5449858a19ef063534842d53}} 
+\index{vendas.c@{vendas.c}!cadastraVenda@{cadastraVenda}}
+\index{cadastraVenda@{cadastraVenda}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{cadastraVenda()}{cadastraVenda()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}}$\ast$ cadastra\+Venda (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$}]{ini\+\_\+v,  }\item[{\mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}} $\ast$}]{prods,  }\item[{int}]{tam\+Prods,  }\item[{float}]{total\+Venda,  }\item[{int $\ast$}]{quant\+\_\+v }\end{DoxyParamCaption})}
+
+
+
+Cadastra a venda. 
+
+Recupera os itens vendidos e cadastra a venda adicionando o vetor junto com as demais informações de vendas na lista. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+v} & Ponteiro para o inicio da lista de vendas. \\
+\hline
+{\em prods} & Vetor com os produtos vendidos. \\
+\hline
+{\em tam\+Prods} & Tamanho do vetor prods. \\
+\hline
+{\em total\+Venda} & Valor total da venda realizada. \\
+\hline
+{\em quant\+\_\+v} & Ponteiro para variavel de quantidade de vendas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O novo ponteiro de inicio da lista de vendas. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vendas_8c_a69ef7c6db6c2f38c204f7d3b98926831}\label{vendas_8c_a69ef7c6db6c2f38c204f7d3b98926831}} 
+\index{vendas.c@{vendas.c}!dataHora@{dataHora}}
+\index{dataHora@{dataHora}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{dataHora()}{dataHora()}}
+{\footnotesize\ttfamily void data\+Hora (\begin{DoxyParamCaption}\item[{int $\ast$}]{dia,  }\item[{int $\ast$}]{mes,  }\item[{int $\ast$}]{ano,  }\item[{int $\ast$}]{hora,  }\item[{int $\ast$}]{minutos,  }\item[{int $\ast$}]{segundos }\end{DoxyParamCaption})}
+
+
+
+Defini data e hora de uma venda. 
+
+Recupera a data e hora da máquina local para definir a data/hora de uma venda. Os valores são definidos por referência.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dia} & Ponteiro para o dia da venda. \\
+\hline
+{\em mes} & Ponteiro para o mes da venda. \\
+\hline
+{\em ano} & Ponteiro para o ano da venda. \\
+\hline
+{\em hora} & Ponteiro para a hora da venda. \\
+\hline
+{\em minutos} & Ponteiro para os minutos da venda. \\
+\hline
+{\em segundos} & Ponteiro para os segundos da venda. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vendas_8c_adbf717665da5413daa897a305c7a098d}\label{vendas_8c_adbf717665da5413daa897a305c7a098d}} 
+\index{vendas.c@{vendas.c}!geraNomeRelatorio@{geraNomeRelatorio}}
+\index{geraNomeRelatorio@{geraNomeRelatorio}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{geraNomeRelatorio()}{geraNomeRelatorio()}}
+{\footnotesize\ttfamily char$\ast$ gera\+Nome\+Relatorio (\begin{DoxyParamCaption}\item[{int}]{mes }\end{DoxyParamCaption})}
+
+
+
+Gera nome de arquivo para relatório de faturamentos. 
+
+O nome é gerado de acordo com o mês selecionado para geramento de relatório. O nome tem o formato \textquotesingle{}relatorios/mes.\+txt\textquotesingle{}, por isso, a pasta relatorios deve existir no diretório do sistema.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mes} & Um inteiro que representa o mês selecionado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O nome do arquivo correspondente ao mês. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vendas_8c_abc6e741118d3fcc0ea2a5d9f40d1db28}\label{vendas_8c_abc6e741118d3fcc0ea2a5d9f40d1db28}} 
+\index{vendas.c@{vendas.c}!gerarRelatorioFaturamento@{gerarRelatorioFaturamento}}
+\index{gerarRelatorioFaturamento@{gerarRelatorioFaturamento}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{gerarRelatorioFaturamento()}{gerarRelatorioFaturamento()}}
+{\footnotesize\ttfamily void gerar\+Relatorio\+Faturamento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$}]{ini\+\_\+vendas,  }\item[{int}]{mes }\end{DoxyParamCaption})}
+
+
+
+Gera o relatório de faturamento mensal. 
+
+Busca na lista todas as vendas que foram realizadas no período selecionado. As salva em um vetor, e logo após, chama uma segunda função para salvar o relatório em um arquivo do mês correspondente.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vendas_8h_abc6e741118d3fcc0ea2a5d9f40d1db28}{gerar\+Relatorio\+Faturamento}} 
+
+\mbox{\hyperlink{arquivos_8h_a034194c4f57e4af0f64c94b066c26e0f}{salvar\+Relatorio}} 
+
+\mbox{\hyperlink{vendas_8h_adbf717665da5413daa897a305c7a098d}{gera\+Nome\+Relatorio}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+vendas} & Ponteiro para o inicio da lista de vendas. \\
+\hline
+{\em mes} & Mês de referência para o geramento de relatório. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vendas_8c_a3bb2a15de64c145a658f96fe77ddfe6f}\label{vendas_8c_a3bb2a15de64c145a658f96fe77ddfe6f}} 
+\index{vendas.c@{vendas.c}!listarVendas@{listarVendas}}
+\index{listarVendas@{listarVendas}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{listarVendas()}{listarVendas()}}
+{\footnotesize\ttfamily void listar\+Vendas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$}]{ini\+\_\+v }\end{DoxyParamCaption})}
+
+
+
+Mostrar as vendas. 
+
+Mostra na tela todas as vendas realizadas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+v} & Ponteiro para o inicio da lista de vendas. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vendas_8c_a4254707550b588056e72773aa689ec89}\label{vendas_8c_a4254707550b588056e72773aa689ec89}} 
+\index{vendas.c@{vendas.c}!mostrarNotaFiscal@{mostrarNotaFiscal}}
+\index{mostrarNotaFiscal@{mostrarNotaFiscal}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{mostrarNotaFiscal()}{mostrarNotaFiscal()}}
+{\footnotesize\ttfamily void mostrar\+Nota\+Fiscal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}} $\ast$}]{produtos,  }\item[{int}]{tam,  }\item[{float}]{total\+Venda }\end{DoxyParamCaption})}
+
+
+
+Mostra a nota fiscal da venda. 
+
+Quando uma venda é finalizada, a nota fiscal com o detalhamento dos produtos vendidos e demais informações é mostrada na tela.
+
+
+\begin{DoxyParams}{Parameters}
+{\em produtos} & Ponteiro para o vetor de Itens vendidos. \\
+\hline
+{\em tam} & Tamanho do vetor de produtos. \\
+\hline
+{\em total\+Venda} & Valor total da venda. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vendas_8c_aadfc482814d92abcbe9db2675f3b5520}\label{vendas_8c_aadfc482814d92abcbe9db2675f3b5520}} 
+\index{vendas.c@{vendas.c}!mostrarRelatorioFaturamento@{mostrarRelatorioFaturamento}}
+\index{mostrarRelatorioFaturamento@{mostrarRelatorioFaturamento}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{mostrarRelatorioFaturamento()}{mostrarRelatorioFaturamento()}}
+{\footnotesize\ttfamily void mostrar\+Relatorio\+Faturamento (\begin{DoxyParamCaption}\item[{int}]{mes }\end{DoxyParamCaption})}
+
+
+
+Mostra na tela o relatório de faturamento do mês. 
+
+Busca as informações no arquivo de relatório correspondente ao mês buscado, e exibe o relatório na tela.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mes} & Mês de referência para o leitura do arquivo de relatório. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vendas_8c_a71f50102fe20a99b23862b3c1483d1f6}\label{vendas_8c_a71f50102fe20a99b23862b3c1483d1f6}} 
+\index{vendas.c@{vendas.c}!realizaVenda@{realizaVenda}}
+\index{realizaVenda@{realizaVenda}!vendas.c@{vendas.c}}
+\doxysubsubsection{\texorpdfstring{realizaVenda()}{realizaVenda()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vendas_8h_af740f1990b0fbbad1eda3ca39e2cc96e}{Itens}}$\ast$ realiza\+Venda (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{float $\ast$}]{total\+Venda,  }\item[{int $\ast$}]{quantidade\+\_\+prod }\end{DoxyParamCaption})}
+
+
+
+Realiza uma venda. 
+
+Adiciona todos os produtos passados no caixa à venda, e faz a saida de estoque -\/ produtos que estão sendo vendidos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em total\+Venda} & Ponteiro para a variavel que armazena o valor total da venda. \\
+\hline
+{\em quantidade\+\_\+prod} & Ponteiro para a variavel que armazena a quantidade de produtos vendidos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna um vetor com todos os produtos vendidos. 
+\end{DoxyReturn}

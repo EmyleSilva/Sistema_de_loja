@@ -1,3 +1,10 @@
+/**
+* @file interface.c
+* @brief Implementação das funções de interface.
+* @see interface.h
+*
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "interface.h"

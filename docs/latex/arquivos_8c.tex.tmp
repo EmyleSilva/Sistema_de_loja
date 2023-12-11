@@ -1,0 +1,277 @@
+\hypertarget{arquivos_8c}{}\doxysection{arquivos.\+c File Reference}
+\label{arquivos_8c}\index{arquivos.c@{arquivos.c}}
+
+
+Implementação das funções utilizadas nas operçãoes de arquivos.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}arquivos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}produtos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vendas.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface.\+h\char`\"{}}\newline
+Include dependency graph for arquivos.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{arquivos_8c_a871bdb35c07c5fc37c5664ee482214bd}{inicializa\+Produtos}} (char $\ast$nome\+Arq, int $\ast$quant)
+\begin{DoxyCompactList}\small\item\em Inicializa a lista de Produtos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{arquivos_8c_ae7cc703696404d4ea5715f3e678e2cd0}{inicia\+Lista\+Prod}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+prod, \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$aux, int quant)
+\begin{DoxyCompactList}\small\item\em Inicia a lista de produtos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{arquivos_8c_a916041c4b0bc49f489e0713d1bb47c90}{ler\+Arquivos\+Produtos}} (char $\ast$nome\+Arq, int quantidade\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Lê os valores armazenados no arquivo de produtos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{arquivos_8c_ace3a579dbd8248e2ca734e06c4e6c57a}{salvar\+Produtos}} (char $\ast$nome\+Arq, int quant\+\_\+p, \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Salva em um arquivo os produtos cadastrados no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{arquivos_8c_ae88be6ab44c0f309faea4127cca66a44}{salvar\+Vendas}} (char $\ast$nome\+Arq, int quant\+\_\+v, \mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ini\+\_\+v)
+\begin{DoxyCompactList}\small\item\em Salva em um arquivo as vendas cadastradas no sistema. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ \mbox{\hyperlink{arquivos_8c_a52e5213ac7932eff73b2ae2fd85c754d}{inicializa\+Vendas}} (\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$$\ast$ini\+\_\+v, int $\ast$quant\+\_\+v, char $\ast$nome\+Arq)
+\begin{DoxyCompactList}\small\item\em Inicializa a lista de Vendas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{arquivos_8c_a034194c4f57e4af0f64c94b066c26e0f}{salvar\+Relatorio}} (char $\ast$nome\+Arq, \mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$r, int tamV, float total\+\_\+periodo, int mes)
+\begin{DoxyCompactList}\small\item\em Salva em um arquivo o relatório de faturamento mensal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$ \mbox{\hyperlink{arquivos_8c_a045510803917dcbd0f8546fdfe23b3b7}{ler\+Arquivo\+Relatorio}} (char $\ast$nome\+Arq, int $\ast$tamV, float $\ast$total\+\_\+periodo)
+\begin{DoxyCompactList}\small\item\em Lê os valores armazenados no arquivo de Relatórios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{arquivos_8c_a2bd2cef730da69b82492e2fe7042a38c}{salvar\+Avisos\+Estoque}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$avisos, int tam\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Salva os avisos de estoque irregular. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{arquivos_8c_ac6b6aa34a68e6c908085a152c57d6e5b}{ler\+Arquivo\+Avisos}} (int $\ast$tam\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Lê os valores armazenados no arquivo de avisos de estoque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{arquivos_8c_a114f5e817be7655c354aefc73c283e2a}\label{arquivos_8c_a114f5e817be7655c354aefc73c283e2a}} 
+FILE $\ast$ {\bfseries fp\+\_\+p}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação das funções utilizadas nas operçãoes de arquivos. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{arquivos_8h}{arquivos.\+h}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{arquivos_8c_ae7cc703696404d4ea5715f3e678e2cd0}\label{arquivos_8c_ae7cc703696404d4ea5715f3e678e2cd0}} 
+\index{arquivos.c@{arquivos.c}!iniciaListaProd@{iniciaListaProd}}
+\index{iniciaListaProd@{iniciaListaProd}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{iniciaListaProd()}{iniciaListaProd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ inicia\+Lista\+Prod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+prod,  }\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{aux,  }\item[{int}]{quant }\end{DoxyParamCaption})}
+
+
+
+Inicia a lista de produtos. 
+
+Utiliza um laço para passar todos os valores recuperados do arquivo de produtos para uma lista encadeada. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{produtos_8h_afd28cdb2c71749789f44bf6d1ac0681a}{recupera\+Produtos}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+prod} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em aux} & Ponteiro para um vetor que armazena os produtos recuperados do arquivo. \\
+\hline
+{\em quant} & Quantidade de produtos recuperados.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para o inicio da lista de vendas. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8c_a871bdb35c07c5fc37c5664ee482214bd}\label{arquivos_8c_a871bdb35c07c5fc37c5664ee482214bd}} 
+\index{arquivos.c@{arquivos.c}!inicializaProdutos@{inicializaProdutos}}
+\index{inicializaProdutos@{inicializaProdutos}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{inicializaProdutos()}{inicializaProdutos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ inicializa\+Produtos (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{int $\ast$}]{quant }\end{DoxyParamCaption})}
+
+
+
+Inicializa a lista de Produtos. 
+
+Verifica se o arquivo de produtos existe. Caso exista, lê a quantidade de produtos armazenados para que as operações de recuperação dos dados possam ser feitas. A função é chamada antes do ínicio do menu, para que o sistema seja iniciado com os valores corretos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Ponteiro para o nome do arquivo de produtos. \\
+\hline
+{\em quant} & Ponteiro para a quantidade de produtos salvos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para o inicio da lista de produtos inicializada ou NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8c_a52e5213ac7932eff73b2ae2fd85c754d}\label{arquivos_8c_a52e5213ac7932eff73b2ae2fd85c754d}} 
+\index{arquivos.c@{arquivos.c}!inicializaVendas@{inicializaVendas}}
+\index{inicializaVendas@{inicializaVendas}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{inicializaVendas()}{inicializaVendas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}}$\ast$ inicializa\+Vendas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$$\ast$}]{ini\+\_\+v,  }\item[{int $\ast$}]{quant\+\_\+v,  }\item[{char $\ast$}]{nome\+Arq }\end{DoxyParamCaption})}
+
+
+
+Inicializa a lista de Vendas. 
+
+Verifica se o arquivo de vendas existe. Caso exista, lê a quantidade de vendas armazenadas para que as operações de recuperação dos dados possam ser feitas. A função é chamada antes do ínicio do menu, para que o sistema seja iniciado com os valores corretos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+v} & Um ponteiro para o ponteiro do inicio da lista de vendas. \\
+\hline
+{\em quant\+\_\+v} & Ponteiro para a quantidade de vendas salvas. \\
+\hline
+{\em nome\+Arq} & Ponteiro para o nome do arquivo de vendas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para o inicio da lista de vendas inicializada ou NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8c_ac6b6aa34a68e6c908085a152c57d6e5b}\label{arquivos_8c_ac6b6aa34a68e6c908085a152c57d6e5b}} 
+\index{arquivos.c@{arquivos.c}!lerArquivoAvisos@{lerArquivoAvisos}}
+\index{lerArquivoAvisos@{lerArquivoAvisos}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{lerArquivoAvisos()}{lerArquivoAvisos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ ler\+Arquivo\+Avisos (\begin{DoxyParamCaption}\item[{int $\ast$}]{tam\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Lê os valores armazenados no arquivo de avisos de estoque. 
+
+Recupera do arquivo de avisos todos os produtos que foram salvos com notificação de estoque irregular.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{produtos_8h_add60514dad470ce74851dab15e52a830}{buscar\+Estoque\+Irregular}} 
+
+\mbox{\hyperlink{produtos_8h_a160db73b0c186e4cec4c1b7026bb77b5}{mostra\+Avisos\+Estoque}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Um vetor com itens de estoque irregular recuperados do arquivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8c_a045510803917dcbd0f8546fdfe23b3b7}\label{arquivos_8c_a045510803917dcbd0f8546fdfe23b3b7}} 
+\index{arquivos.c@{arquivos.c}!lerArquivoRelatorio@{lerArquivoRelatorio}}
+\index{lerArquivoRelatorio@{lerArquivoRelatorio}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{lerArquivoRelatorio()}{lerArquivoRelatorio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}}$\ast$ ler\+Arquivo\+Relatorio (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{int $\ast$}]{tamV,  }\item[{float $\ast$}]{total\+\_\+periodo }\end{DoxyParamCaption})}
+
+
+
+Lê os valores armazenados no arquivo de Relatórios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Nome do arquivo de relatórios. \\
+\hline
+{\em tamV} & Ponteiro para a variavel que armazena o tamanho do vetor de vendas do período. \\
+\hline
+{\em total\+\_\+periodo} & Ponteiro para variavel que armazena o valor do faturamento do mês.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um vetor do tipo Vendas com os valores que fazem parte do período salvo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8c_a916041c4b0bc49f489e0713d1bb47c90}\label{arquivos_8c_a916041c4b0bc49f489e0713d1bb47c90}} 
+\index{arquivos.c@{arquivos.c}!lerArquivosProdutos@{lerArquivosProdutos}}
+\index{lerArquivosProdutos@{lerArquivosProdutos}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{lerArquivosProdutos()}{lerArquivosProdutos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ ler\+Arquivos\+Produtos (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{int}]{quantidade\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Lê os valores armazenados no arquivo de produtos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Nome do arquivo de produtos. \\
+\hline
+{\em quantidade\+\_\+p} & Quantidade de produtos salvos no arquivo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Um vetor do tipo Produtos com os valores recuperados do arquivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8c_a2bd2cef730da69b82492e2fe7042a38c}\label{arquivos_8c_a2bd2cef730da69b82492e2fe7042a38c}} 
+\index{arquivos.c@{arquivos.c}!salvarAvisosEstoque@{salvarAvisosEstoque}}
+\index{salvarAvisosEstoque@{salvarAvisosEstoque}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{salvarAvisosEstoque()}{salvarAvisosEstoque()}}
+{\footnotesize\ttfamily void salvar\+Avisos\+Estoque (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{avisos,  }\item[{int}]{tam\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Salva os avisos de estoque irregular. 
+
+Quando há algum item com estoque irregular, as notificações de regularização são salvas em um arquivo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em avisos} & Ponteiro para um vetor com todos os produtos que estão com estoque irregular. \\
+\hline
+{\em tam\+\_\+p} & Tamanho do vetor que guarda os itens irregulares. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{arquivos_8c_ace3a579dbd8248e2ca734e06c4e6c57a}\label{arquivos_8c_ace3a579dbd8248e2ca734e06c4e6c57a}} 
+\index{arquivos.c@{arquivos.c}!salvarProdutos@{salvarProdutos}}
+\index{salvarProdutos@{salvarProdutos}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{salvarProdutos()}{salvarProdutos()}}
+{\footnotesize\ttfamily void salvar\+Produtos (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{int}]{quant\+\_\+p,  }\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Salva em um arquivo os produtos cadastrados no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Ponteiro para o nome do arquivo em que os produtos serão salvos. \\
+\hline
+{\em quant\+\_\+p} & Quantidade de produtos cadastrados no sistema. \\
+\hline
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{arquivos_8c_a034194c4f57e4af0f64c94b066c26e0f}\label{arquivos_8c_a034194c4f57e4af0f64c94b066c26e0f}} 
+\index{arquivos.c@{arquivos.c}!salvarRelatorio@{salvarRelatorio}}
+\index{salvarRelatorio@{salvarRelatorio}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{salvarRelatorio()}{salvarRelatorio()}}
+{\footnotesize\ttfamily void salvar\+Relatorio (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$}]{r,  }\item[{int}]{tamV,  }\item[{float}]{total\+\_\+periodo,  }\item[{int}]{mes }\end{DoxyParamCaption})}
+
+
+
+Salva em um arquivo o relatório de faturamento mensal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Ponteira para o nome do arquivo em que o relatório será salvo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{vendas_8h_adbf717665da5413daa897a305c7a098d}{gera\+Nome\+Relatorio}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Ponteiro para o vetor que armazena as vendas do periodo selecionado. \\
+\hline
+{\em tamV} & Tamanho do vetor que contém as vendas do periodo selecionado. \\
+\hline
+{\em total\+\_\+periodo} & Valor do faturamento mensal. \\
+\hline
+{\em mes} & Inteiro que indica a qual mês o relatório gerado se refere. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{arquivos_8c_ae88be6ab44c0f309faea4127cca66a44}\label{arquivos_8c_ae88be6ab44c0f309faea4127cca66a44}} 
+\index{arquivos.c@{arquivos.c}!salvarVendas@{salvarVendas}}
+\index{salvarVendas@{salvarVendas}!arquivos.c@{arquivos.c}}
+\doxysubsubsection{\texorpdfstring{salvarVendas()}{salvarVendas()}}
+{\footnotesize\ttfamily void salvar\+Vendas (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{int}]{quant\+\_\+v,  }\item[{\mbox{\hyperlink{vendas_8h_aec682e6d1ce48bdf9c9caeebcd66f6c5}{Vendas}} $\ast$}]{ini\+\_\+v }\end{DoxyParamCaption})}
+
+
+
+Salva em um arquivo as vendas cadastradas no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Ponteiro para o nome do arquivo em que as vendas serão salvas. \\
+\hline
+{\em quant\+\_\+v} & Quantidade de vendas cadastradas no sistema. \\
+\hline
+{\em ini\+\_\+v} & Ponteiro para o inicio da lista de vendas. \\
+\hline
+\end{DoxyParams}

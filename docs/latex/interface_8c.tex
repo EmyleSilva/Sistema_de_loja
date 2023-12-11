@@ -1,0 +1,119 @@
+\hypertarget{interface_8c}{}\doxysection{interface.\+c File Reference}
+\label{interface_8c}\index{interface.c@{interface.c}}
+
+
+Implementação das funções de interface.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}interface.\+h\char`\"{}}\newline
+Include dependency graph for interface.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interface_8c_a86d09adb3e37dfb79495384f0ca42254}{menu}} (char opcoes\mbox{[}$\,$\mbox{]}\mbox{[}50\mbox{]}, int quant)
+\begin{DoxyCompactList}\small\item\em Exibe um menu para o usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8c_a1d93035a35dd59adf1835c3609c0109e}{titulo}} (char titulos\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Exibe o titulo da sessão em que o usuário se encontra. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{interface_8c_a709439a2f16402fe60f9db86e06ec29a}\label{interface_8c_a709439a2f16402fe60f9db86e06ec29a}} 
+void \mbox{\hyperlink{interface_8c_a709439a2f16402fe60f9db86e06ec29a}{limpa\+Tela}} ()
+\begin{DoxyCompactList}\small\item\em Limpa a tela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8c_a1dc97043e90d3057e9d2bd514592d660}{mostra\+\_\+erro\+\_\+e\+\_\+encerra}} (char tipo\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Exibe na tela uma mensagem de erro e encerra o programa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8c_adf81ffff231e4db8701354bd80e5c0c6}{mensagem\+\_\+final}} (int status\+\_\+operação)
+\begin{DoxyCompactList}\small\item\em Exibe uma mensagem no fim de cada operação informando o status final. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8c_a290cc7ae6f10344edc4e82bf4aa65a60}{validacao\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Exibe um alerta de validação para o menu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{interface_8c_aa21a9333e843e468f58d21249a95b325}\label{interface_8c_aa21a9333e843e468f58d21249a95b325}} 
+void \mbox{\hyperlink{interface_8c_aa21a9333e843e468f58d21249a95b325}{finaliza\+\_\+programa}} ()
+\begin{DoxyCompactList}\small\item\em Mostra mensagem de finalização e sai do programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação das funções de interface. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{interface_8h}{interface.\+h}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{interface_8c_adf81ffff231e4db8701354bd80e5c0c6}\label{interface_8c_adf81ffff231e4db8701354bd80e5c0c6}} 
+\index{interface.c@{interface.c}!mensagem\_final@{mensagem\_final}}
+\index{mensagem\_final@{mensagem\_final}!interface.c@{interface.c}}
+\doxysubsubsection{\texorpdfstring{mensagem\_final()}{mensagem\_final()}}
+{\footnotesize\ttfamily void mensagem\+\_\+final (\begin{DoxyParamCaption}\item[{int}]{status\+\_\+operacao }\end{DoxyParamCaption})}
+
+
+
+Exibe uma mensagem no fim de cada operação informando o status final. 
+
+Informa ao usuario se a operação foi finalizada com sucesso (constante FINALIZADA) se a operação foi cancelada (constante CANCELADA) ou ainda se a operação falhou (constante FALHOU).
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+\_\+operacao} & Constante que indica o status final da operação. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8c_a86d09adb3e37dfb79495384f0ca42254}\label{interface_8c_a86d09adb3e37dfb79495384f0ca42254}} 
+\index{interface.c@{interface.c}!menu@{menu}}
+\index{menu@{menu}!interface.c@{interface.c}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}\item[{char}]{opcoes\mbox{[}$\,$\mbox{]}\mbox{[}50\mbox{]},  }\item[{int}]{quant }\end{DoxyParamCaption})}
+
+
+
+Exibe um menu para o usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opcoes} & Vetor de strings com as opções do menu. \\
+\hline
+{\em quant} & Quantidade de opções que o menu possui. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8c_a1dc97043e90d3057e9d2bd514592d660}\label{interface_8c_a1dc97043e90d3057e9d2bd514592d660}} 
+\index{interface.c@{interface.c}!mostra\_erro\_e\_encerra@{mostra\_erro\_e\_encerra}}
+\index{mostra\_erro\_e\_encerra@{mostra\_erro\_e\_encerra}!interface.c@{interface.c}}
+\doxysubsubsection{\texorpdfstring{mostra\_erro\_e\_encerra()}{mostra\_erro\_e\_encerra()}}
+{\footnotesize\ttfamily void mostra\+\_\+erro\+\_\+e\+\_\+encerra (\begin{DoxyParamCaption}\item[{char}]{tipo\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Exibe na tela uma mensagem de erro e encerra o programa. 
+
+Quando um erro interno ocorre (ERRO\+\_\+\+MEMORIA, ERRO\+\_\+\+ARQ\+\_\+W, ERRO\+\_\+\+ARQ\+\_\+R), e o programa precisa ser encerrado, o usuário é informado sobre o tipo de erro que aconteceu,e logo após o programa é finalizado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo} & Indica qual tipo de erro ocorreu. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8c_a1d93035a35dd59adf1835c3609c0109e}\label{interface_8c_a1d93035a35dd59adf1835c3609c0109e}} 
+\index{interface.c@{interface.c}!titulo@{titulo}}
+\index{titulo@{titulo}!interface.c@{interface.c}}
+\doxysubsubsection{\texorpdfstring{titulo()}{titulo()}}
+{\footnotesize\ttfamily void titulo (\begin{DoxyParamCaption}\item[{char}]{titulos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Exibe o titulo da sessão em que o usuário se encontra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titulos} & String para o titulo a ser exibido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8c_a290cc7ae6f10344edc4e82bf4aa65a60}\label{interface_8c_a290cc7ae6f10344edc4e82bf4aa65a60}} 
+\index{interface.c@{interface.c}!validacao\_menu@{validacao\_menu}}
+\index{validacao\_menu@{validacao\_menu}!interface.c@{interface.c}}
+\doxysubsubsection{\texorpdfstring{validacao\_menu()}{validacao\_menu()}}
+{\footnotesize\ttfamily void validacao\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe um alerta de validação para o menu. 
+
+Quando o usuário seleciona uma opção que não existe no menu, a mensagem é mostrada informando ao usuário que uma opção válida precisa ser selecionada. 

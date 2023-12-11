@@ -1,0 +1,66 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Arquivo Principal do projeto.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}produtos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vendas.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arquivos.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Função principal do programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Arquivo Principal do projeto. 
+
+Sistema criado para manutenção de um sistema de loja. O sistema tem como funções\+: armazenar produtos, controlar estoque e realizar vendas e gerar relatórios de faturamente de determinados períodos.
+
+\begin{DoxyDate}{Date}
+10/12/2023 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Emyle Silva 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Função principal do programa. 
+
+\begin{DoxyReturn}{Returns}
+0 se o programa for executado com sucesso. 
+\end{DoxyReturn}
+Variável principal de produtos.
+
+Ponteiro de inicio para a lista encadeada que armazena os produtos cadastrados no sistema.
+
+Variável principal de vendas.
+
+Ponteiro de inicio para a lista encadeada que armazena as vendas realizadas no sistema.
+
+Nomeação de arquivos.
+
+Usadas para abrir (ler e salvar) os arquivos que armazenam os produtos e as vendas.
+
+$<$Usado para abrir os arquivos de produtos.
+
+$<$Usado para abrir os arquivos de vendas.

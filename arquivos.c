@@ -1,3 +1,10 @@
+/**
+* @file arquivos.c
+* @brief Implementação das funções utilizadas nas operçãoes de arquivos.
+* @see arquivos.h
+*
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "arquivos.h"

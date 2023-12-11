@@ -1,10 +1,13 @@
-/*
-** Sistema criado para manutenção de um sistema de loja
-** O sistema tem como funções: armazenar clientes, produtos
-** e realizar vendas.
-**
-** última atualização: 10/12/2023
-** Autor: Emyle Silva
+/**
+* @file main.c
+* @brief Arquivo Principal do projeto.
+*
+* Sistema criado para manutenção de um sistema de loja.
+* O sistema tem como funções: armazenar produtos, controlar estoque
+* e realizar vendas e gerar relatórios de faturamente de determinados períodos.
+*
+* @date 10/12/2023
+* @author Emyle Silva
 */
 
 #include <stdio.h>
@@ -16,18 +19,44 @@
 #include "vendas.h"
 #include "arquivos.h"
 
+/**
+* @brief Função principal do programa.
+*
+* @return 0 se o programa for executado com sucesso.
+*/
+
 int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "Portuguese");
     srand(time(NULL));
+
+    /**
+    * @brief Variável principal de produtos.
+    *
+    * Ponteiro de inicio para a lista encadeada que armazena
+    * os produtos cadastrados no sistema.
+    */
     Produtos *ini_produtos = NULL;
+
+    /**
+    * @brief Variável principal de vendas.
+    *
+    * Ponteiro de inicio para a lista encadeada que armazena
+    * as vendas realizadas no sistema.
+    */
     Vendas   *ini_vendas   = NULL;
 
-    char nomeArq_p[20] = "produtos.txt";
-    char nomeArq_v[20] = "vendas.txt";
+    /**
+    * @brief Nomeação de arquivos.
+    *
+    * Usadas para abrir (ler e salvar) os arquivos que armazenam
+    * os produtos e as vendas.
+    */
+    char nomeArq_p[20] = "produtos.txt"; /** <Usado para abrir os arquivos de produtos. */
+    char nomeArq_v[20] = "vendas.txt"; /** <Usado para abrir os arquivos de vendas. */
 
     int opt_menu = 0, opt_p = 0, opt_v = 0, opt_e = 0;
-    int quant_p = 0, quant_v = 0, quant_avisos = 0; //Controle de quantidadde para manipulação de arquivos.
+    int quant_p = 0, quant_v = 0, quant_avisos = 0;
     int aux = 0, confirma = 0;
 
     //Inicializa o sistema buscando os dados já salvos em arquivos

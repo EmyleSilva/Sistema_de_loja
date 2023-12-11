@@ -1,3 +1,10 @@
+/**
+* @file vendas.c
+* @brief Implementação das funções de vendas.
+* @see vendas.h
+*
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

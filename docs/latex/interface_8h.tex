@@ -1,0 +1,191 @@
+\hypertarget{interface_8h}{}\doxysection{interface.\+h File Reference}
+\label{interface_8h}\index{interface.h@{interface.h}}
+
+
+Declaração das funções de interface.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{interface_8h_a87c16cf7009f1e9d88b0d2eedd1e3577}{FINALIZADA}}~0
+\begin{DoxyCompactList}\small\item\em Definição de status de operação. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_a4111a02a07c2f438f2a5399c5ea539f7}{CANCELADA}}~1
+\begin{DoxyCompactList}\small\item\em Definição de status de operação. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_ac8a6c16541895288c9324a08528f0caa}{FALHOU}}~2
+\begin{DoxyCompactList}\small\item\em Definição de status de operação. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_aba4d82c614583f91e37af4ec6eadb816}{ERRO\+\_\+\+MEMORIA}}~\char`\"{}Erro Interno\+: Memoria Insuficiente\char`\"{}
+\begin{DoxyCompactList}\small\item\em Definição de tipo de erro. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_ab8efff45398ed88faf984d88444f060f}{ERRO\+\_\+\+ARQ\+\_\+R}}~\char`\"{}Erro Interno\+: Erro ao abrir arquivo para leitura\char`\"{}
+\begin{DoxyCompactList}\small\item\em Definição de tipo de erro. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_af373da765f3ba0b13050f83bc800eeea}{ERRO\+\_\+\+ARQ\+\_\+W}}~\char`\"{}Erro Interno\+: Erro ao abrir arquivo\char`\"{}
+\begin{DoxyCompactList}\small\item\em Definição de tipo de erro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interface_8h_a86d09adb3e37dfb79495384f0ca42254}{menu}} (char opcoes\mbox{[}$\,$\mbox{]}\mbox{[}50\mbox{]}, int quant)
+\begin{DoxyCompactList}\small\item\em Exibe um menu para o usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8h_a1d93035a35dd59adf1835c3609c0109e}{titulo}} (char titulos\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Exibe o titulo da sessão em que o usuário se encontra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8h_a1dc97043e90d3057e9d2bd514592d660}{mostra\+\_\+erro\+\_\+e\+\_\+encerra}} (char tipo\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Exibe na tela uma mensagem de erro e encerra o programa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8h_a78092d76a1bf63f213331e2651551803}{mensagem\+\_\+final}} (int status\+\_\+operacao)
+\begin{DoxyCompactList}\small\item\em Exibe uma mensagem no fim de cada operação informando o status final. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8h_a290cc7ae6f10344edc4e82bf4aa65a60}{validacao\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Exibe um alerta de validação para o menu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{interface_8h_aa21a9333e843e468f58d21249a95b325}\label{interface_8h_aa21a9333e843e468f58d21249a95b325}} 
+void \mbox{\hyperlink{interface_8h_aa21a9333e843e468f58d21249a95b325}{finaliza\+\_\+programa}} ()
+\begin{DoxyCompactList}\small\item\em Mostra mensagem de finalização e sai do programa. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{interface_8h_a709439a2f16402fe60f9db86e06ec29a}\label{interface_8h_a709439a2f16402fe60f9db86e06ec29a}} 
+void \mbox{\hyperlink{interface_8h_a709439a2f16402fe60f9db86e06ec29a}{limpa\+Tela}} ()
+\begin{DoxyCompactList}\small\item\em Limpa a tela. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaração das funções de interface. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{interface_8h_a4111a02a07c2f438f2a5399c5ea539f7}\label{interface_8h_a4111a02a07c2f438f2a5399c5ea539f7}} 
+\index{interface.h@{interface.h}!CANCELADA@{CANCELADA}}
+\index{CANCELADA@{CANCELADA}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{CANCELADA}{CANCELADA}}
+{\footnotesize\ttfamily \#define CANCELADA~1}
+
+
+
+Definição de status de operação. 
+
+A constante CANCELADA define o status de uma operação que foi cancelada pelo usuário. \mbox{\Hypertarget{interface_8h_ab8efff45398ed88faf984d88444f060f}\label{interface_8h_ab8efff45398ed88faf984d88444f060f}} 
+\index{interface.h@{interface.h}!ERRO\_ARQ\_R@{ERRO\_ARQ\_R}}
+\index{ERRO\_ARQ\_R@{ERRO\_ARQ\_R}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{ERRO\_ARQ\_R}{ERRO\_ARQ\_R}}
+{\footnotesize\ttfamily \#define ERRO\+\_\+\+ARQ\+\_\+R~\char`\"{}Erro Interno\+: Erro ao abrir arquivo para leitura\char`\"{}}
+
+
+
+Definição de tipo de erro. 
+
+ERRO\+\_\+\+ARQ\+\_\+R mostra ao usuário quando o programa é encerrado devido a um erro ao abrir um arquivo para leitura. \mbox{\Hypertarget{interface_8h_af373da765f3ba0b13050f83bc800eeea}\label{interface_8h_af373da765f3ba0b13050f83bc800eeea}} 
+\index{interface.h@{interface.h}!ERRO\_ARQ\_W@{ERRO\_ARQ\_W}}
+\index{ERRO\_ARQ\_W@{ERRO\_ARQ\_W}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{ERRO\_ARQ\_W}{ERRO\_ARQ\_W}}
+{\footnotesize\ttfamily \#define ERRO\+\_\+\+ARQ\+\_\+W~\char`\"{}Erro Interno\+: Erro ao abrir arquivo\char`\"{}}
+
+
+
+Definição de tipo de erro. 
+
+ERRO\+\_\+\+ARQ\+\_\+W mostra ao usuário quando o programa é encerrado devido a um erro ao abrir/gerar um arquivo para escrita. \mbox{\Hypertarget{interface_8h_aba4d82c614583f91e37af4ec6eadb816}\label{interface_8h_aba4d82c614583f91e37af4ec6eadb816}} 
+\index{interface.h@{interface.h}!ERRO\_MEMORIA@{ERRO\_MEMORIA}}
+\index{ERRO\_MEMORIA@{ERRO\_MEMORIA}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{ERRO\_MEMORIA}{ERRO\_MEMORIA}}
+{\footnotesize\ttfamily \#define ERRO\+\_\+\+MEMORIA~\char`\"{}Erro Interno\+: Memoria Insuficiente\char`\"{}}
+
+
+
+Definição de tipo de erro. 
+
+ERRO\+\_\+\+MEMORIA mostra ao usuário quando o programa é encerrado devido a um erro relacionado a falta de memória, geralmente, chamada quando ocorre erro de alocação. \mbox{\Hypertarget{interface_8h_ac8a6c16541895288c9324a08528f0caa}\label{interface_8h_ac8a6c16541895288c9324a08528f0caa}} 
+\index{interface.h@{interface.h}!FALHOU@{FALHOU}}
+\index{FALHOU@{FALHOU}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{FALHOU}{FALHOU}}
+{\footnotesize\ttfamily \#define FALHOU~2}
+
+
+
+Definição de status de operação. 
+
+A constante FALHOU define o status de uma operação que foi cancelada devido a algum erro. \mbox{\Hypertarget{interface_8h_a87c16cf7009f1e9d88b0d2eedd1e3577}\label{interface_8h_a87c16cf7009f1e9d88b0d2eedd1e3577}} 
+\index{interface.h@{interface.h}!FINALIZADA@{FINALIZADA}}
+\index{FINALIZADA@{FINALIZADA}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{FINALIZADA}{FINALIZADA}}
+{\footnotesize\ttfamily \#define FINALIZADA~0}
+
+
+
+Definição de status de operação. 
+
+A constante FINALIZADA define o status de uma operação que ocorreu de acordo com o fluxo esperado, sem nenhuma falha ou cancelamento. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{interface_8h_a78092d76a1bf63f213331e2651551803}\label{interface_8h_a78092d76a1bf63f213331e2651551803}} 
+\index{interface.h@{interface.h}!mensagem\_final@{mensagem\_final}}
+\index{mensagem\_final@{mensagem\_final}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{mensagem\_final()}{mensagem\_final()}}
+{\footnotesize\ttfamily void mensagem\+\_\+final (\begin{DoxyParamCaption}\item[{int}]{status\+\_\+operacao }\end{DoxyParamCaption})}
+
+
+
+Exibe uma mensagem no fim de cada operação informando o status final. 
+
+Informa ao usuario se a operação foi finalizada com sucesso (constante FINALIZADA) se a operação foi cancelada (constante CANCELADA) ou ainda se a operação falhou (constante FALHOU).
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+\_\+operacao} & Constante que indica o status final da operação. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a86d09adb3e37dfb79495384f0ca42254}\label{interface_8h_a86d09adb3e37dfb79495384f0ca42254}} 
+\index{interface.h@{interface.h}!menu@{menu}}
+\index{menu@{menu}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}\item[{char}]{opcoes\mbox{[}$\,$\mbox{]}\mbox{[}50\mbox{]},  }\item[{int}]{quant }\end{DoxyParamCaption})}
+
+
+
+Exibe um menu para o usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opcoes} & Vetor de strings com as opções do menu. \\
+\hline
+{\em quant} & Quantidade de opções que o menu possui. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a1dc97043e90d3057e9d2bd514592d660}\label{interface_8h_a1dc97043e90d3057e9d2bd514592d660}} 
+\index{interface.h@{interface.h}!mostra\_erro\_e\_encerra@{mostra\_erro\_e\_encerra}}
+\index{mostra\_erro\_e\_encerra@{mostra\_erro\_e\_encerra}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{mostra\_erro\_e\_encerra()}{mostra\_erro\_e\_encerra()}}
+{\footnotesize\ttfamily void mostra\+\_\+erro\+\_\+e\+\_\+encerra (\begin{DoxyParamCaption}\item[{char}]{tipo\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Exibe na tela uma mensagem de erro e encerra o programa. 
+
+Quando um erro interno ocorre (ERRO\+\_\+\+MEMORIA, ERRO\+\_\+\+ARQ\+\_\+W, ERRO\+\_\+\+ARQ\+\_\+R), e o programa precisa ser encerrado, o usuário é informado sobre o tipo de erro que aconteceu,e logo após o programa é finalizado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo} & Indica qual tipo de erro ocorreu. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a1d93035a35dd59adf1835c3609c0109e}\label{interface_8h_a1d93035a35dd59adf1835c3609c0109e}} 
+\index{interface.h@{interface.h}!titulo@{titulo}}
+\index{titulo@{titulo}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{titulo()}{titulo()}}
+{\footnotesize\ttfamily void titulo (\begin{DoxyParamCaption}\item[{char}]{titulos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Exibe o titulo da sessão em que o usuário se encontra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titulos} & String para o titulo a ser exibido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a290cc7ae6f10344edc4e82bf4aa65a60}\label{interface_8h_a290cc7ae6f10344edc4e82bf4aa65a60}} 
+\index{interface.h@{interface.h}!validacao\_menu@{validacao\_menu}}
+\index{validacao\_menu@{validacao\_menu}!interface.h@{interface.h}}
+\doxysubsubsection{\texorpdfstring{validacao\_menu()}{validacao\_menu()}}
+{\footnotesize\ttfamily void validacao\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe um alerta de validação para o menu. 
+
+Quando o usuário seleciona uma opção que não existe no menu, a mensagem é mostrada informando ao usuário que uma opção válida precisa ser selecionada. 

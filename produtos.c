@@ -1,3 +1,11 @@
+/**
+* @file produtos.c
+* @brief Implementação das funções de produtos.
+* @see produtos.h
+*
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

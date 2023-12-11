@@ -1,0 +1,336 @@
+\hypertarget{produtos_8c}{}\doxysection{produtos.\+c File Reference}
+\label{produtos_8c}\index{produtos.c@{produtos.c}}
+
+
+Implementação das funções de produtos.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}arquivos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}produtos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface.\+h\char`\"{}}\newline
+Include dependency graph for produtos.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long int \mbox{\hyperlink{produtos_8c_a6d6f768529f1a1f075476ff07330293f}{valida\+Codigo\+Prod}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p, long int codigo)
+\begin{DoxyCompactList}\small\item\em Valida os códigos de produtos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{produtos_8c_a786d86a2fc368c5b6acdb66e1c3954a0}{insere\+Produto}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Insere um Produto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{produtos_8c_afd28cdb2c71749789f44bf6d1ac0681a}{recupera\+Produtos}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p, long int codigo, char $\ast$descricao, float valor, int quant)
+\begin{DoxyCompactList}\small\item\em Salva os produtos dos arquivos no sistema. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{produtos_8c_a5b68157996f578da2f0652b9f84eccf0}{encontra\+Produto}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p, long int codigo)
+\begin{DoxyCompactList}\small\item\em Busca um produto na lista. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{produtos_8c_a94818f975e5cdb5c39b28ab86786d511}{verifica\+Descricao}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p, char $\ast$descricao)
+\begin{DoxyCompactList}\small\item\em Valida descrição do produto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{produtos_8c_aba766f930855b438bc1de01e239e85bf}{atualiza\+Estoque\+Add}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+produtos, int $\ast$confirma, int $\ast$quant\+\_\+ad)
+\begin{DoxyCompactList}\small\item\em Inicia a entrada de estoque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{produtos_8c_abd193eaa75429d0d33dd66268a49d10f}{adicionar\+Itens}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$produto, int quant)
+\begin{DoxyCompactList}\small\item\em Adiciona Itens ao estoque. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ \mbox{\hyperlink{produtos_8c_a178e0dc811991fdc4cbe4fa3467dd0b5}{atualiza\+Estoque\+Del}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p, int $\ast$confirma, int $\ast$quant\+\_\+del)
+\begin{DoxyCompactList}\small\item\em Inicia a saida de estoque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{produtos_8c_a043ae7a6b05170b3f904b68e1414e4f1}{excluir\+Itens}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$produto, int quant, int tipo\+\_\+operacao)
+\begin{DoxyCompactList}\small\item\em Deleta Itens do estoque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{produtos_8c_a5c47f399babfb14b3a41442e5f737d37}{consulta\+Preco}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Consulta preço. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{produtos_8c_a89c54de8988fa3a9e0dfea55d15c2749}{listar\+Produtos}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Mostrar os produtos cadastrados. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{produtos_8c_add60514dad470ce74851dab15e52a830}{buscar\+Estoque\+Irregular}} (\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$ini\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Busca estoque irregular. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{produtos_8c_a160db73b0c186e4cec4c1b7026bb77b5}{mostra\+Avisos\+Estoque}} (int tam\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Mostra avisos de estoque irregular. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação das funções de produtos. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{produtos_8h}{produtos.\+h}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{produtos_8c_abd193eaa75429d0d33dd66268a49d10f}\label{produtos_8c_abd193eaa75429d0d33dd66268a49d10f}} 
+\index{produtos.c@{produtos.c}!adicionarItens@{adicionarItens}}
+\index{adicionarItens@{adicionarItens}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{adicionarItens()}{adicionarItens()}}
+{\footnotesize\ttfamily void adicionar\+Itens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{produto,  }\item[{int}]{quant }\end{DoxyParamCaption})}
+
+
+
+Adiciona Itens ao estoque. 
+
+Atualiza o estoque adicionando a quantidade de itens indicada pelo usuario. A operação verifica se o estoque está sendo regularizado (quando a quantidade atual é igual a -\/1, nesse caso, \textquotesingle{}adiciona\textquotesingle{} uma unidade a mais. Caso contrário, o estoque estava regular, e a adição é feita normalmente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em produto} & Ponteiro para o produto que terá o estoque atualizado. \\
+\hline
+{\em qunat} & Quantidade a ser adicionada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{produtos_8c_aba766f930855b438bc1de01e239e85bf}\label{produtos_8c_aba766f930855b438bc1de01e239e85bf}} 
+\index{produtos.c@{produtos.c}!atualizaEstoqueAdd@{atualizaEstoqueAdd}}
+\index{atualizaEstoqueAdd@{atualizaEstoqueAdd}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{atualizaEstoqueAdd()}{atualizaEstoqueAdd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ atualiza\+Estoque\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{int $\ast$}]{confirma,  }\item[{int $\ast$}]{quant\+\_\+ad }\end{DoxyParamCaption})}
+
+
+
+Inicia a entrada de estoque. 
+
+Busca as informações necessárias para a atualização de estoque A função busca o produto a ser atualizado. Recebe a quantidade de entrada do estoque por referência e confirma se o usuário deseja prosseguir com a operação.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em confirma} & Variavel de confirmação da operação, atualizada por referência. \\
+\hline
+{\em quant\+\_\+ad} & Quantidade de entrada de estoque, atualizada por referência.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O produto em que a operação de entrada de estoque será realizada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_a178e0dc811991fdc4cbe4fa3467dd0b5}\label{produtos_8c_a178e0dc811991fdc4cbe4fa3467dd0b5}} 
+\index{produtos.c@{produtos.c}!atualizaEstoqueDel@{atualizaEstoqueDel}}
+\index{atualizaEstoqueDel@{atualizaEstoqueDel}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{atualizaEstoqueDel()}{atualizaEstoqueDel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ atualiza\+Estoque\+Del (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{int $\ast$}]{confirma,  }\item[{int $\ast$}]{quant\+\_\+del }\end{DoxyParamCaption})}
+
+
+
+Inicia a saida de estoque. 
+
+Busca as informações necessárias para a atualização de estoque A função busca o produto a ser atualizado. Recebe a quantidade de saída do estoque por referência e confirma se o usuário deseja prosseguir com a operação.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em confirma} & Variavel de confirmação da operação, atualizada por referência. \\
+\hline
+{\em quant\+\_\+del} & Quantidade de saída de estoque, atualizada por referência.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O produto em que a operação de saída de estoque será realizada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_add60514dad470ce74851dab15e52a830}\label{produtos_8c_add60514dad470ce74851dab15e52a830}} 
+\index{produtos.c@{produtos.c}!buscarEstoqueIrregular@{buscarEstoqueIrregular}}
+\index{buscarEstoqueIrregular@{buscarEstoqueIrregular}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{buscarEstoqueIrregular()}{buscarEstoqueIrregular()}}
+{\footnotesize\ttfamily int buscar\+Estoque\+Irregular (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Busca estoque irregular. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{produtos_8h_a043ae7a6b05170b3f904b68e1414e4f1}{excluir\+Itens}}.
+\end{DoxySeeAlso}
+Busca na lista os produtos que ficaram com estoque irregular (-\/1) durante uma venda.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantidade de produtos que estão irregulares. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_a5c47f399babfb14b3a41442e5f737d37}\label{produtos_8c_a5c47f399babfb14b3a41442e5f737d37}} 
+\index{produtos.c@{produtos.c}!consultaPreco@{consultaPreco}}
+\index{consultaPreco@{consultaPreco}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{consultaPreco()}{consultaPreco()}}
+{\footnotesize\ttfamily void consulta\+Preco (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Consulta preço. 
+
+Consulta o preço de um produto específicado pelo usuário (busca através do código do produto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{produtos_8c_a5b68157996f578da2f0652b9f84eccf0}\label{produtos_8c_a5b68157996f578da2f0652b9f84eccf0}} 
+\index{produtos.c@{produtos.c}!encontraProduto@{encontraProduto}}
+\index{encontraProduto@{encontraProduto}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{encontraProduto()}{encontraProduto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ encontra\+Produto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{long int}]{codigo }\end{DoxyParamCaption})}
+
+
+
+Busca um produto na lista. 
+
+Faz uma pesquisa na lista em busca do produto requerido pelo usuário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em codigo} & Codigo do produto que está sendo pesquisado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O produto buscado, ou NULL caso o produto não exista. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_a043ae7a6b05170b3f904b68e1414e4f1}\label{produtos_8c_a043ae7a6b05170b3f904b68e1414e4f1}} 
+\index{produtos.c@{produtos.c}!excluirItens@{excluirItens}}
+\index{excluirItens@{excluirItens}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{excluirItens()}{excluirItens()}}
+{\footnotesize\ttfamily void excluir\+Itens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{produto,  }\item[{int}]{quant,  }\item[{int}]{tipo\+\_\+operacao }\end{DoxyParamCaption})}
+
+
+
+Deleta Itens do estoque. 
+
+Atualiza o estoque excluindo a quantidade de itens indicada pelo usuario. A operação pode ser realizada a partir do estoque ou durante a realização de uma venda. O tipo da operação é definido pela constante T\+\_\+\+ESTOQUE ou T\+\_\+\+VENDA.
+
+Caso seja chamada durante o estoque\+: Verifica se a quantidade que o usuário deseja deletar é maior do que a quantidade já registrada. Caso não seja, deleta a quantidade pedida, caso contrário, o estoque é zerado.
+
+Caso seja chamada durante a venda\+: Verifica se a quantidade comprada é maior do que a quantidade registrada. Caso seja, marca o produto como irregular ao definir a quantidade como -\/1, caso contrário, atualiza o estoque com a saída da venda.
+
+
+\begin{DoxyParams}{Parameters}
+{\em produto} & Ponteiro para o produto que terá o estoque atualizado. \\
+\hline
+{\em qunat} & Quantidade a ser excluida. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{produtos_8c_a786d86a2fc368c5b6acdb66e1c3954a0}\label{produtos_8c_a786d86a2fc368c5b6acdb66e1c3954a0}} 
+\index{produtos.c@{produtos.c}!insereProduto@{insereProduto}}
+\index{insereProduto@{insereProduto}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{insereProduto()}{insereProduto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ insere\+Produto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Insere um Produto. 
+
+A função insere um novo produto ao inicio da lista.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O novo ponteiro para o inicio da lista de produtos. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_a89c54de8988fa3a9e0dfea55d15c2749}\label{produtos_8c_a89c54de8988fa3a9e0dfea55d15c2749}} 
+\index{produtos.c@{produtos.c}!listarProdutos@{listarProdutos}}
+\index{listarProdutos@{listarProdutos}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{listarProdutos()}{listarProdutos()}}
+{\footnotesize\ttfamily void listar\+Produtos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Mostrar os produtos cadastrados. 
+
+Lista na tela todos os produtos que estão cadastrados no sistema.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{produtos_8c_a160db73b0c186e4cec4c1b7026bb77b5}\label{produtos_8c_a160db73b0c186e4cec4c1b7026bb77b5}} 
+\index{produtos.c@{produtos.c}!mostraAvisosEstoque@{mostraAvisosEstoque}}
+\index{mostraAvisosEstoque@{mostraAvisosEstoque}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{mostraAvisosEstoque()}{mostraAvisosEstoque()}}
+{\footnotesize\ttfamily void mostra\+Avisos\+Estoque (\begin{DoxyParamCaption}\item[{int}]{tam\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Mostra avisos de estoque irregular. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{produtos_8h_add60514dad470ce74851dab15e52a830}{buscar\+Estoque\+Irregular}}.
+\end{DoxySeeAlso}
+Mostra para o usuário um relatório com as informações dos produtos que estão com estoque irregular, e informa a necessidade de regularização do estoque.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tam\+\_\+p} & Quantidade de produtos irregulares. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{produtos_8c_afd28cdb2c71749789f44bf6d1ac0681a}\label{produtos_8c_afd28cdb2c71749789f44bf6d1ac0681a}} 
+\index{produtos.c@{produtos.c}!recuperaProdutos@{recuperaProdutos}}
+\index{recuperaProdutos@{recuperaProdutos}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{recuperaProdutos()}{recuperaProdutos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}}$\ast$ recupera\+Produtos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{long int}]{codigo,  }\item[{char $\ast$}]{descricao,  }\item[{float}]{valor,  }\item[{int}]{quant }\end{DoxyParamCaption})}
+
+
+
+Salva os produtos dos arquivos no sistema. 
+
+Salva na lista encadeada os produtos que foram recuperados durante a inicialização do programa. Mantém o sistema persistente ao atualizar os valores salvos antes do programa ser encerrado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em codigo} & Codigo do produto. \\
+\hline
+{\em descricao} & Descrição do produto. \\
+\hline
+{\em valor} & Preço do produto. \\
+\hline
+{\em quant} & A quantidade em estoque do produto.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O novo ponteiro para o inicio da lista. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_a6d6f768529f1a1f075476ff07330293f}\label{produtos_8c_a6d6f768529f1a1f075476ff07330293f}} 
+\index{produtos.c@{produtos.c}!validaCodigoProd@{validaCodigoProd}}
+\index{validaCodigoProd@{validaCodigoProd}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{validaCodigoProd()}{validaCodigoProd()}}
+{\footnotesize\ttfamily long int valida\+Codigo\+Prod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{long int}]{codigo }\end{DoxyParamCaption})}
+
+
+
+Valida os códigos de produtos. 
+
+Verifica se o código inserido pelo usuário para um produto já está sendo utilizado em algum outro produto. Caso esteja pede ao usuário que indique outro código.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em codigo} & Codigo do produto a ser verificado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um código de produto válido. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{produtos_8c_a94818f975e5cdb5c39b28ab86786d511}\label{produtos_8c_a94818f975e5cdb5c39b28ab86786d511}} 
+\index{produtos.c@{produtos.c}!verificaDescricao@{verificaDescricao}}
+\index{verificaDescricao@{verificaDescricao}!produtos.c@{produtos.c}}
+\doxysubsubsection{\texorpdfstring{verificaDescricao()}{verificaDescricao()}}
+{\footnotesize\ttfamily char$\ast$ verifica\+Descricao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{produtos_8h_ae676cf731b20c8d0023fe4aac7c433d2}{Produtos}} $\ast$}]{ini\+\_\+p,  }\item[{char $\ast$}]{descricao }\end{DoxyParamCaption})}
+
+
+
+Valida descrição do produto. 
+
+Verifica se a descrição do produto inserida pelo usuário já está sendo usada em outro produto. Caso esteja, solicita ao usuário uma nova descrição.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini\+\_\+p} & Ponteiro para o inicio da lista de produtos. \\
+\hline
+{\em descricao} & Ponteiro para a descrição do produto adicionado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Uma descrição válida para o produto. 
+\end{DoxyReturn}
