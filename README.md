@@ -37,7 +37,7 @@ Para rodar o código do projeto, você precisará do seguinte:
 
 ## 🗃️Documentação do Projeto
 
--[Documentação Completa](./docs/html/index.html)
+-[Documentação Completa](https://emylesilva.github.io/Sistema_de_loja/html/index.html)
 
 ## ⚙️Configuração do Projeto
 1. Clone o repositório usando o comando: 
